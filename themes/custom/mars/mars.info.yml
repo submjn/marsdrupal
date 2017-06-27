@@ -1,0 +1,27 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'MARS'
+description: 'Uses the Bootstrap framework Sass source files and must be compiled (not for beginners).'
+package: 'Bootstrap'
+
+regions:
+  header: 'Top Bar'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  breadcrumb: 'Breadcrumbs'
+  highlighted: 'Highlighted'
+  col_One_third: 'Column 13'
+  col_two_third: 'Column 23'
+  front_top: 'Front Page top'
+  content: 'Content'
+  front_bottom: 'Front Page bottom'
+  footer: 'Footer'
+  sidebar_left: 'Sidebar Left'
+  sidebar_right: 'Sidebar Right'
+  fron-banner: 'Front Banner'
+
+libraries:
+  - 'mars/global-styling'
+  - 'mars/bootstrap-scripts'

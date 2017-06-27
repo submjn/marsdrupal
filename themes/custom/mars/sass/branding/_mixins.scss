@@ -1,0 +1,38 @@
+@mixin gradient-background($background-1, $background-2){
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ccd65d+0,a1a94c+100 */
+  background: $background-1; /* Old browsers */
+  background: -moz-linear-gradient(top,  $background-1 0%, $background-2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  $background-1 0%,$background-2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  $background-1 0%,$background-2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{$background-1}, endColorstr=#{$background-2},GradientType=0 ); /* IE6-9 */
+}
+
+/// Mixin printing a linear-gradient
+/// as well as a plain color fallback
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {Keyword | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin border-radius($radius){
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}

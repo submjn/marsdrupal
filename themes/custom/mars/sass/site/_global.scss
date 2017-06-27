@@ -1,0 +1,25 @@
+.layout-container {
+  @include gradient-background(#2A5B0B, #fff);
+}
+
+#homePage {
+  .content-section-main {
+    background: #fff;
+    padding: 15px;
+  }
+}
+
+#page {
+  .content-wrapper {
+    & > .row {
+      background: #fff;
+      margin: 0;
+      padding: 15px;
+    }
+  }
+}
+
+.highlighted {
+  max-height: 150px;
+  overflow: hidden;
+}

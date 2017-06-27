@@ -1,0 +1,11 @@
+{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+
+<header id="breadcrumbBar" role="navigation">
+    <div class="{{ container }}">
+        {% if page.breadcrumb %}
+            {% block breadcrumb %}
+                {{ page.breadcrumb }}
+            {% endblock %}
+        {% endif %}
+    </div>
+</header>

@@ -1,0 +1,145 @@
+{# Frontpage: Page Wrapper #}
+{% set container = 'container' %}
+
+<div id="homePage" class="layout-container">
+    {# Header #}
+    <headerGroup>
+        {% if page.header %}
+            {% block header %}
+                <header id="headerTop" role="banner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12" role="heading">
+                                {{ page.header }}
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            {% endblock %}
+        {% endif %}
+        {# Navbar - Primary and Seconday#}
+        {% if page.navigation or page.navigation_collapsible %}
+            {% block navbar %}
+                {%
+                set navbar_classes = [
+                'navbar',
+                theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
+                ]
+                %}
+                {#theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,#}
+                {# templates/navigation/nav-header-top.html.twig #}
+
+                <header{{ navbar_attributes.addClass(navbar_classes) }} id="topNavbar" role="navigation">
+                    <div class="{{ container }}">
+                        {% include directory ~ '/templates/navigation/nav--header-top.html.twig' %}
+                    </div>
+                </header>
+                {# templates/navigation/nav-header-bottom.html.twig #}
+                {#{% include directory ~ '/templates/navigation/nav--header-bottom.html.twig' %}#}
+
+
+            {% endblock %}
+        {% endif %}
+    </headerGroup>
+
+    <div class="page-top-section container">
+        <div class="row">
+            {% if page.col_One_third %}
+                {% block colOneThird %}
+                    <div class="content-bottom-1 col-md-4 col-sm-4">
+                        {# templates/partials/frontpage/block--mars-search.html.twig #}
+                        {#{% include directory ~ '/templates/partials/frontpage/block--mars-search.html.twig' %}#}
+                        {{ page.col_One_third }}
+                    </div>
+                {% endblock %}
+            {% endif %}
+            {% if page.col_two_third %}
+                {% block colTwoThird %}
+                    <div class="content-bottom-2 col-md-8 col-sm-8">
+                        {{ page.col_two_third }}
+                    </div>
+                {% endblock %}
+            {% endif %}
+        </div>
+
+        {# templates/navigation/nav-header-bottom.html.twig #}
+        {% include directory ~ '/templates/navigation/nav--breadcrumb.html.twig' %}
+    </div>
+
+
+    <article>
+        {% block main %}
+            <main role="main" class="main-container {{ container }} js-quickedit-main-content">
+                <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+                <div class="content-wrapper">
+                    {# Content #}
+                    {%
+                    set content_classes = [
+                    'content-section-main',
+                    page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+                    page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
+                    page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
+                    page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+                    ]
+                    %}
+                    <section{{ content_attributes.addClass(content_classes) }}>
+
+                        {# Highlighted #}
+                        {% if page.highlighted %}
+                            {% block highlighted %}
+                                <div class="highlighted">{{ page.highlighted }}</div>
+                            {% endblock %}
+                        {% endif %}
+
+                        {# Action Links #}
+                        {% if action_links %}
+                            {% block action_links %}
+                                <ul class="action-links">{{ action_links }}</ul>
+                            {% endblock %}
+                        {% endif %}
+
+
+
+                        {# Page Top #}
+                        {% if page.front_top %}
+                            {% block top %}
+                                <div class="page-top" role="contentinfo">
+                                    {{ page.front_top }}
+                                </div>
+                            {% endblock %}
+                        {% endif %}
+
+                        {# Content #}
+                        {% block content %}
+                        <div class="layout-content {{ sidebarClass }}">
+                            {{ page.content }}
+                            </div>{# /.layout-content #}
+                        {% endblock %}
+                    </section>
+                </div>
+            </main>
+        {% endblock %}
+    </article>
+
+    {# Page Bottom #}
+    {% if page.front_bottom %}
+        {% block bottom %}
+            <div class="page-bottom" role="contentinfo">
+                {{ page.front_bottom }}
+            </div>
+        {% endblock %}
+    {% endif %}
+
+    {# Footer #}
+    {% if page.footer %}
+        {% block footer %}
+            <footer id="mainFooter" class="footer" role="contentinfo">
+                <div class="{{ container }}">
+                    {{ page.footer }}
+                </div>
+            </footer>
+        {% endblock %}
+    {% endif %}
+
+</div>
+{# /.layout-container #}

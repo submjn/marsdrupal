@@ -1,0 +1,6 @@
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+<nav id="blockMarsMainMenu" role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.removeClass('clearfix')|without('role', 'aria-labelledby') }}>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</nav>

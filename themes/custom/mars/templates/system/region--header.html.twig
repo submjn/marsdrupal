@@ -1,0 +1,13 @@
+{%
+  set classes = [
+    'row region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+{% if content %}
+    <div id="regionHeader" class="header-wrapper">
+      <div{{ attributes.addClass(classes) }}>
+        {{ content }}
+      </div>
+    </div>
+{% endif %}

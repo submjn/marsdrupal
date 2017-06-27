@@ -1,0 +1,73 @@
+.sub-nav {
+  margin: -20px;
+  background-image: -o-linear-gradient(-89deg, #F5F5F5 0%, #E5E5E5 100%);
+  background-image: -moz-linear-gradient(-89deg, #F5F5F5 0%, #E5E5E5 100%);
+  background-image: -ms-linear-gradient(-89deg, #F5F5F5 0%, #E5E5E5 100%);
+  background-image: linear-gradient(-179deg, #F5F5F5 0%, #E5E5E5 100%);
+  border: 1px solid #C2C2C2;
+  border-left: none;
+  border-right: none;
+  -moz-box-shadow: inset 0px 1px 0px 0px #FFFFFF;
+  box-shadow: inset 0px 1px 0px 0px #FFFFFF;
+
+  height: 25px;
+
+  //position: fixed;
+  /*top: 87px;
+  left: 255px;
+  right: 0;
+
+  left: $sidebar-left-space;*/
+
+  ul {
+    /*position: absolute;
+    top: -1px;
+    left: 0px;
+    right: 0px;
+    padding: 0;*/
+    text-align: center;
+    li {
+      display: inline-block;
+      margin-left: -6px;
+
+      /* Rectangle 14: */
+      background-image: -o-linear-gradient(-89deg, #F5F5F5 0%, #E5E5E5 100%);
+      background-image: -moz-linear-gradient(-89deg, #F5F5F5 0%, #E5E5E5 100%);
+      background-image: -ms-linear-gradient(-89deg, #F5F5F5 0%, #E5E5E5 100%);
+      background-image: linear-gradient(-179deg, #F5F5F5 0%, #E5E5E5 100%);
+      border: 1px solid #C2C2C2;
+      -moz-box-shadow: inset 1px 1px 0px 0px #FFFFFF;
+      box-shadow: inset 1px 1px 0px 0px #FFFFFF;
+
+      &.selected {
+        z-index: 99;
+        background-image: -o-linear-gradient(-89deg, #E1E1E1 0%, #E6E6E6 100%);
+        background-image: -moz-linear-gradient(-89deg, #E1E1E1 0%, #E6E6E6 100%);
+        background-image: -ms-linear-gradient(-89deg, #E1E1E1 0%, #E6E6E6 100%);
+        background-image: linear-gradient(-179deg, #E1E1E1 0%, #E6E6E6 100%);
+        border: 1px solid #A8A8A8;
+        -moz-box-shadow: inset -1px 0px 0px 0px #D3D3D3, inset 1px 0px 0px 0px #D4D4D4, inset 0px 1px 0px 0px #DFDFDF, inset 0px -1px 0px 0px #E5E5E5;
+        box-shadow: inset -1px 0px 0px 0px #D3D3D3, inset 1px 0px 0px 0px #D4D4D4, inset 0px 1px 0px 0px #DFDFDF, inset 0px -1px 0px 0px #E5E5E5;
+      }
+
+      a {
+        display: inline-block;
+        padding: 4px 40px;
+        font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        color: #686868;
+        line-height: 15px;
+        text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.60);
+
+        &:hover {
+          text-decoration: none !important;
+        }
+      }
+
+    }
+  }
+}
+.sub-nav-content-container {
+  padding: 20px;
+}

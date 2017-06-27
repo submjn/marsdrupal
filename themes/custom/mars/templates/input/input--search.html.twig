@@ -1,0 +1,14 @@
+{% extends "input.html.twig" %}
+
+{% spaceless %}
+  {%
+    set classes = [
+      'form-control',
+    ]
+  %}
+  {% block input %}
+    {#<input id="searchInput" {{ attributes.addClass(classes) }}/>#}
+    <input id="searchInput" title="" data-drupal-selector="edit-keys" class="form-search form-control" placeholder=""
+           type="search" name="keys" value="" size="15" maxlength="98" data-toggle="tooltip" data-original-title="Enter the terms you wish to search for.">
+  {% endblock %}
+{% endspaceless %}

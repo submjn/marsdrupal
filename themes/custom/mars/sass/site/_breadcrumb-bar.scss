@@ -1,0 +1,33 @@
+#breadcrumbBar {
+  .row {
+    margin: 0;
+    background: #404f32; //darken($AMSGrassGreen, 10%);
+  }
+
+}
+
+.social-icons {
+  text-align: right;
+  margin: 0 -15px;
+  ul {
+    margin: 5px;
+    .text {
+      color: #fff;
+    }
+  }
+}
+
+.breadcrumb {
+  background: transparent;
+  margin: 0;
+  padding: 15px 0;
+  li {
+    color: #fff;
+    a {
+      color: #fff;
+    }
+  }
+  & > .active {
+    color: #fff;
+  }
+}

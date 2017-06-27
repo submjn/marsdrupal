@@ -1,0 +1,319 @@
+{# Page: Interactive Map #}
+{% set container = mars.settings.fluid_container ? 'container-fluid' : 'container' %}
+
+<div id="page" class="layout-container">
+    {# Header #}
+    <headerGroup>
+        {% if page.header %}
+            {% block header %}
+                <header id="headerTop" role="banner">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12" role="heading">
+                                {{ page.header }}
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            {% endblock %}
+        {% endif %}
+        {# Navbar - Primary and Seconday#}
+        {% if page.navigation or page.navigation_collapsible %}
+            {% block navbar %}
+                {%
+                set navbar_classes = [
+                'navbar',
+                theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
+                ]
+                %}
+                {#theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,#}
+                {# templates/navigation/nav-header-top.html.twig #}
+                <header{{ navbar_attributes.addClass(navbar_classes) }} id="topNavbar" role="navigation">
+                    <div class="{{ container }}">
+                        {% include directory ~ '/templates/navigation/nav--header-top.html.twig' %}
+                    </div>
+                </header>
+                {# templates/navigation/nav-header-bottom.html.twig #}
+                {#{% include directory ~ '/templates/navigation/nav--header-bottom.html.twig' %}#}
+                {# templates/navigation/nav-header-bottom.html.twig #}
+                <header id="breadcrumbBar" role="navigation">
+                    <div class="container-fluid">
+                        {% if page.breadcrumb %}
+                            {% block breadcrumb %}
+                                {{ page.breadcrumb }}
+                            {% endblock %}
+                        {% endif %}
+                    </div>
+                </header>
+
+            {% endblock %}
+        {% endif %}
+    </headerGroup>
+
+    <article>
+        {% block main %}
+            <main role="main" class="main-container container-fluid js-quickedit-main-content">
+                <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+                <div class="content-wrapper">
+                    {# Content #}
+                    {%
+                    set sidebar_left_classes = [
+                    'content-left-sidebar',
+                    page.sidebar_right is empty ? 'col-md-4',
+                    page.sidebar_right ? 'col-md-3'
+                    ]
+                    %}
+                    {%
+                    set content_classes = [
+                    'content-section',
+                    (page.sidebar_left and page.sidebar_right is empty) or (page.sidebar_right and page.sidebar_left is empty ) ? 'col-md-8',
+                    page.sidebar_left is empty and page.sidebar_right is empty ? 'col-md-12',
+                    page.sidebar_left and page.sidebar_right ? 'col-md-6'
+                    ]
+                    %}
+                    {%
+                    set sidebar_right_classes = [
+                    'content-right-sidebar',
+                    page.sidebar_left is empty? 'col-md-4',
+                    page.sidebar_left ? 'col-md-3'
+                    ]
+                    %}
+
+                    {# Page Top #}
+                    {# Highlighted #}
+                    {% if page.highlighted %}
+                        {% block highlighted %}
+                            <div class="highlighted">{{ page.highlighted }}</div>
+                        {% endblock %}
+                    {% endif %}
+
+
+                    <div class="row main-content-section">
+
+                        {% if page.sidebar_left %}
+                            <div{{ attributes.addClass(sidebar_left_classes) }}>
+                                {{ page.sidebar_left }}
+                            </div>
+                        {% endif %}
+
+                        <div{{ attributes.removeClass(sidebar_left_classes).addClass(content_classes) }}>
+                            {# Content #}
+                            {% block content %}
+                                <div class="layout-content">
+                                {#{{ page.content }}#}
+
+                                {% include directory ~ '/templates/partials/interactivemap/top--description.html.twig' %}
+
+                                <div class="interactive-view tabbed-view">
+                                    <div class="btn-header-wrap">
+                                        <button type="button" class="page-title-btn btn btn-primary">Search for Commodities</button>
+                                    </div>
+
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="settings-tab">
+                                            <a href="#settingsView" aria-controls="settingsview" role="tab" data-toggle="tab">
+                                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="search-tab">
+                                            <a href="#searchView" aria-controls="searchview" role="tab" data-toggle="tab">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="map-tab active">
+                                            <a href="#mapView" aria-controls="mapview" role="tab" data-toggle="tab">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="search-view">
+                                        <form class="search-commodities-form clearfix">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <h4>Commodities</h4>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Commodities</label>
+                                                        <select class="chosen-select">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Categoty</label>
+                                                        <select class="chosen-select">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Data Item</label>
+                                                        <select class="chosen-select">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h4>Location</h4>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Select State</label>
+                                                        <select class="chosen selectpicker">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Select State</label>
+                                                        <select class="chosen selectpicker">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h4>Time</h4>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Select From Date</label>
+                                                        <select class="chosen selectpicker">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Select To Date</label>
+                                                        <select class="chosen selectpicker">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Period</label>
+                                                        <select class="chosen selectpicker">
+                                                            <optgroup label="Picnic">
+                                                                <option>Mustard</option>
+                                                                <option>Ketchup</option>
+                                                                <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                                <option>Tent</option>
+                                                                <option>Flashlight</option>
+                                                                <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pull-right form-controls">
+                                                <button type="submit" class="btn btn-default green-btn">Get Data</button>
+                                                <button type="submit" class="btn btn-default green-btn">Clear</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="mapView">
+                                            {% include directory ~ '/templates/partials/interactivemap/tab--map-view.html.twig' %}
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane search-view" id="searchView">
+                                            {% include directory ~ '/templates/partials/interactivemap/tab--search-view.html.twig' %}
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="settingsView">
+                                            {% include directory ~ '/templates/partials/interactivemap/tab--settings-view.html.twig' %}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </div>{# /.layout-content #}
+                            {% endblock %}
+                        </div>
+
+                        {% if page.sidebar_right %}
+                            <div{{ attributes.removeClass(content_classes).addClass(sidebar_right_classes) }}>
+                                {{ page.sidebar_right }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </main>
+        {% endblock %}
+    </article>
+
+    {# Page Bottom #}
+    {% if page.front_bottom %}
+        {% block bottom %}
+            <div class="page-bottom" role="contentinfo">
+                {{ page.front_bottom }}
+            </div>
+        {% endblock %}
+    {% endif %}
+
+    {# Footer #}
+    {% if page.footer %}
+        {% block footer %}
+            <footer id="mainFooter" class="footer" role="contentinfo">
+                <div class="{{ container }}">
+                    {{ page.footer }}
+                </div>
+            </footer>
+        {% endblock %}
+    {% endif %}
+
+</div>
+{# /.layout-container #}

@@ -1,0 +1,27 @@
+#newsView {
+  .news-row {
+    min-height:150px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .image-block {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 0;
+    left: 0;
+  }
+  .news-block {
+    margin-left: 175px;
+  }
+  .separator {
+    border-right: 1px solid $gray-light;
+    margin: 0 6px 0 3px;
+  }
+  .teaser {
+    margin-bottom: 10px;
+  }
+  .years {
+    margin: 10px 0;
+  }
+}

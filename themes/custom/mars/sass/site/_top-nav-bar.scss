@@ -1,0 +1,97 @@
+#topNavbar {
+  background-color: transparent; //$AMSGrassGreen;
+  border: 0;
+  margin-bottom: 0; //4px;
+  border-radius: 0;
+}
+
+#topNavigation {
+  padding: 0;
+}
+
+.menu-top-navigation {
+
+  &.nav {
+    //background-color: $AMSSpringGreen;
+    //@include linear-gradient(to bottom, $AMSSpringGreen, #9DA64A);
+    @include gradient-background($AMSSpringGreen, #9DA64A);
+    //@include transition(background-color 1s ease);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    & > li {
+      border-left: 1px solid $AMSOliveGreen;//$AMSDarkGreen;
+      & > a {
+        color: $AMSDarkGreen !important;
+      }
+      .dropdown-menu {
+        left: -1px;
+      }
+      &:first-child {
+        border-left: 0;
+        //background: $AMSDarkGreen;
+        border-top-left-radius: 10px;
+        &:hover {
+          text-decoration: underline;
+        }
+        //a {
+        //  color: #fff!important;
+        //}
+        .dropdown-menu {
+          left: 0;
+        }
+      }
+      &:last-child {
+        border-right:0;
+        border-top-right-radius: 10px;
+      }
+      &.open, &.active, &:hover, &:focus {
+        //background-color: $AMSDarkGreen !important;
+        //@include linear-gradient(to bottom, lighten(#405237, 0), lighten(#34432D, 0));
+        @include gradient-background(lighten(#405237, 0), lighten(#34432D, 0));
+        border-color: #73791C;
+        &:first-child {
+          border-top-left-radius: 10px;
+        }
+        &:last-child {
+          border-top-right-radius: 10px;
+        }
+        & > a {
+          color: $AMSWhite!important;
+          background: transparent !important;
+        }
+      }
+    }
+  }
+  &.dropdown-menu {
+    background-color: rgba(238,238,238,0.97);
+    border: 1px solid #cdd4ce;
+    -webkit-box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+    padding:0px;
+    border: 0;
+    width: 250px;
+    a[href="/run-custom-report"], a[href="/market-news/local-food"]{
+      border-top: 1px solid $AMSGray!important;
+      border-top: 1px solid $AMSGray!important;
+    }
+    li {
+      width: 100%;
+      //border-top: 1px solid $AMSSpringGreen;
+      &:first-child {
+        border: 0;
+      }
+      & > a {
+        color: $legacy-blue !important;
+      }
+      &.open, &.active, &:hover, &:focus {
+        //background-color: $AMSSpringGreen !important;
+        a {
+          color: $AMSDarkGreen !important;
+          background: transparent !important;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

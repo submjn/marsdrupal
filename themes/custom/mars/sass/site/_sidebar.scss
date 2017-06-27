@@ -1,0 +1,31 @@
+.region-sidebar-left nav {
+  // Box shadow
+  @include box-shadow(0px 0px 5px #dadada); //$top, $left, $blur, $color,
+
+  padding: 15px;
+
+  .menu-header {
+    color: $AMSGrassGreen;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .nav {
+    padding: 0;
+    li {
+      background: #fff;
+      margin-left: 1.1em;
+      margin-bottom: 0.5em;
+      a {
+        padding: 5px 0;
+      }
+    }
+  }
+}
+
+.region {
+  img {
+    max-width: 100%;
+  }
+}
