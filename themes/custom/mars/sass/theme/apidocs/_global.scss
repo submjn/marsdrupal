@@ -1,0 +1,56 @@
+*:focus { outline:none; }
+
+body.blur {
+  font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+  .sidebar {
+    /* Rectangle 15: */
+    background-image: -o-linear-gradient(-89deg, #F7F7F7 0%, #EBEBEB 100%);
+    background-image: -moz-linear-gradient(-89deg, #F7F7F7 0%, #EBEBEB 100%);
+    background-image: -ms-linear-gradient(-89deg, #F7F7F7 0%, #EBEBEB 100%);
+    background-image: linear-gradient(-179deg, #F7F7F7 0%, #EBEBEB 100%);
+  }
+
+  ul.nav li.selected {
+    /* Rectangle 16: */
+    background-image: -o-linear-gradient(-89deg, #BDC7DD 0%, #A6B2CD 100%, #9DA9C6 100%);
+    background-image: -moz-linear-gradient(-89deg, #BDC7DD 0%, #A6B2CD 100%, #9DA9C6 100%);
+    background-image: -ms-linear-gradient(-89deg, #BDC7DD 0%, #A6B2CD 100%, #9DA9C6 100%);
+    background-image: linear-gradient(-179deg, #BDC7DD 0%, #A6B2CD 100%, #9DA9C6 100%);
+    -moz-box-shadow: inset 0px -1px 0px 0px #93A0BA, inset 0px 1px 0px 0px #BBC5D7, inset 0px 2px 0px 0px #C3CCE0;
+    box-shadow: inset 0px -1px 0px 0px #93A0BA, inset 0px 1px 0px 0px #BBC5D7, inset 0px 2px 0px 0px #C3CCE0;
+
+    span.sidebar-badge {
+      color: #acb6d0 !important;
+    }
+  }
+
+  table.table-maverix {
+
+    tr.selected {
+      color: #000000;
+      background-color: #cbcbcb !important;
+
+      select.on-white-select {
+        background-color: #cbcbcb;
+      }
+
+      .info-sub {
+        color: #787878 !important;
+      }
+
+    }
+
+  }
+
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif!important;
+}
+
+
+p {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}

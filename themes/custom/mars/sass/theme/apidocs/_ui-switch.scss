@@ -1,0 +1,147 @@
+// UI Switch inspired by https://github.com/nitrous-io/ember-sf-april/blob/master/package.nw/css/style.css
+
+.ui-switch {
+  box-sizing: border-box;
+  position: relative;
+  width: 40px;
+  height: 24px;
+  background-color: #ddd;
+  border-radius: 12px;
+  transition: background-color .3s;
+
+  // Quickfix not in line with span
+  display: inline-block;
+  top: 7px;
+}
+
+/*.ui-switch .disabled-background {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 38px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 11px;
+  transition: top .3s, left .3s, width .3s, height .3s;
+}*/
+
+.ui-switch .toggler {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 11px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: left .3s;
+}
+
+.ui-switch.on {
+  background-color: #77ce65;
+}
+
+/*.ui-switch.on .disabled-background {
+  top: 11px;
+  left: 19px;
+  width: 1px;
+  height: 1px;
+}*/
+
+.ui-switch.on .toggler {
+  left: 17px;
+}
+
+.ui-label {
+  font-family: Helvetica Neue, Helvetica, Arial;
+  font-weight: bold;
+  font-size: 13px;
+  color: #4A4A4A;
+  line-height: 16px;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.80);
+
+  display: inline-block;
+  padding: 4px;
+}
+
+// Dropdown Button
+a.dropdown-toggle {
+  color: #616161 !important;
+
+  &:hover {
+    color: #616161 !important;
+  }
+}
+
+// Toggle: extends http://ghinda.net/css-toggle-switch/
+
+#top-switch {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  padding-top: 0px;
+}
+
+.osx-switch {
+  padding-left: 30px;
+  padding-top: 20px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .osx-switch-label {
+    font-family: Helvetica Neue, Helvetica, Arial;
+    font-weight: bold;
+    font-size: 13px;
+    color: #4A4A4A;
+    line-height: 16px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.80);
+  }
+
+  .osx-switch-label-active {
+    position: relative;
+    left: -30px;
+  }
+
+  .osx-switch-label-inactive {
+    position: relative;
+    right: -55px;
+  }
+
+  label {
+    position: relative;
+    top: -20px;
+    width: 70px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+
+    /* Rectangle 9: */
+    background-image: -o-linear-gradient(-89deg, #818181 0%, #B8B8B8 100%);
+    background-image: -moz-linear-gradient(-89deg, #818181 0%, #B8B8B8 100%);
+    background-image: -ms-linear-gradient(-89deg, #818181 0%, #B8B8B8 100%);
+    background-image: linear-gradient(-179deg, #818181 0%, #B8B8B8 100%);
+    -moz-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.50);
+    box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.20);
+
+    border-top: 1px solid #5C5C5C;
+    border-bottom: 1px solid #989898;
+
+    a {
+      margin-top: -1px;
+      height: 22px;
+      box-shadow: none;
+
+      /* Rectangle 10: */
+      background-image: -o-linear-gradient(-89deg, #FDFDFD 0%, #ECECEC 100%);
+      background-image: -moz-linear-gradient(-89deg, #FDFDFD 0%, #ECECEC 100%);
+      background-image: -ms-linear-gradient(-89deg, #FDFDFD 0%, #ECECEC 100%);
+      background-image: linear-gradient(-179deg, #FDFDFD 0%, #ECECEC 100%);
+      border: 1px solid #7D7D7D;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{% if multiple %}
+  <div class="slide-caption">
+      {% for item in items %}
+        <p>{{ item.content }}</p>
+      {% endfor %}
+  </div>
+{% else %}
+    {% for item in items %}
+      <div class="slide-caption">{{ item.content }}</div>
+    {% endfor %}
+{% endif %}

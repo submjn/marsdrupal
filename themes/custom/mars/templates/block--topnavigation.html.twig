@@ -1,0 +1,7 @@
+{# Top Block Navigation #}
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+<nav id="blockTopNavigation" role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>
+    {% block content %}
+        {{ content }}
+    {% endblock %}
+</nav>

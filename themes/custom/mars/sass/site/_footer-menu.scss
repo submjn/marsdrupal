@@ -1,0 +1,30 @@
+.footer {
+  padding: 0;
+  background-color: $AMSDarkGreen;
+}
+.footer-menu {
+  margin: 15px 0;
+
+  li {
+    display: inline-block;
+    border-left: 1px solid $AMSWhite;
+    line-height:12px;
+
+    a {
+      color: $AMSWhite;
+      padding: 0 15px;
+    }
+
+    &:first-child {
+      border-left: 0;
+    }
+    &.active, &:hover, &:focus {
+      a {
+        background: transparent;
+      }
+    }
+    &:hover a {
+      text-decoration: underline;
+    }
+  }
+}

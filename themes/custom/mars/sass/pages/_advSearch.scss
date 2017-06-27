@@ -1,0 +1,117 @@
+.teaser {
+  padding-top: 10px;
+}
+.green-btn {
+  border-radius: 0;
+  background-color: $AMSGrassGreen;
+  color: #fff;
+}
+
+.map-area, .graph-area {
+  height: 300px;
+  width: 100%;
+  background-color: $gray-light;
+  line-height: 300px;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+}
+
+.tabbed-view {
+  margin-top: 20px;
+  position: relative;
+  .nav-tabs {
+    border-bottom: 5px solid $AMSGrassGreen;
+  }
+  .nav-tabs > li {
+    float: right!important;
+    border: none;
+    margin-bottom: 5px;
+    & > a {
+      border-radius: 0;
+      padding: 0;
+      border: 1px solid $gray-lighter;
+      font-size: 18px;
+      width: 38px;
+      color: $AMSDarkGreen;
+      line-height: 34px;
+      vertical-align: middle;
+      text-align: center;
+      i {
+        font-size: 18px;
+      }
+
+    }
+    &.active {
+      a, a:hover, a:focus {
+        background: $gray-lighter;
+        border: 1px solid $gray-lighter;
+      }
+
+    }
+    &.settings-tab {
+      a {
+        border: none;
+        margin-left: 10px;
+        border-left: 1px solid $gray-lighter;
+      }
+    }
+  }
+  .page-title-btn {
+    //margin-bottom: -66px;
+    border-radius: 0;
+    background-color: $AMSGrassGreen;
+    position: absolute;
+    left: 0;
+    top: 8px
+  }
+  .form-inline {
+    padding: 10px 0;
+  }
+}
+
+.search-view {
+  .search-commodities-form .row{
+    padding: 10px 10px 20px 10px;
+    border: 1px solid $gray-light;
+    margin: 0;
+  }
+  .form-group {
+    padding-top: 10px;
+  }
+  label {
+    display: block;
+  }
+  select {
+    padding: 5px;
+    width: 100%;
+  }
+  .header {
+    border-bottom: 4px solid $AMSGrassGreen;
+    padding-bottom: 6px;
+    margin-top: 20px;
+  }
+  .form-controls {
+    margin: 10px 0;
+  }
+}
+
+.related-widget {
+  .header {
+    border-bottom: 4px solid $AMSGrassGreen;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+  }
+  .links-lists {
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid $gray-base;
+      a {
+        color: $gray-base;
+      }
+    }
+  }
+}

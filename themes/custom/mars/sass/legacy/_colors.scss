@@ -1,0 +1,17 @@
+@mixin boxshadow($string){
+	-webkit-box-shadow: $string; 
+          box-shadow: $string;
+}
+
+//colors
+$c0: #282828; //text 
+$c0b: #565656; //lighter grey text 
+$c1: #D4D688; //spring green
+$c2: #CDD860;
+$c3: #73791C;
+$c4: #2A5B0B; //main medium green
+$c5: #042608; //dark green
+$c6: #EA2A15; //AMS red
+$c7: #1C75BC; //link blue
+$c8: #828A3D;
+$c9: #ffffff;

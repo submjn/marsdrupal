@@ -1,0 +1,22 @@
+#searchInput {
+  width: 200px;
+  float: right;
+  margin-right: 5px;
+}
+
+.search-button {
+  background: $AMSOrangeRed;
+}
+
+.js-form-submit {
+  background: $AMSOrangeRed;
+  &:active {
+    background: $AMSOrangeRed;
+    &:hover, &:focus {
+      background: $AMSOrangeRed;
+    }
+  }
+  &:hover, &:focus {
+    background: $AMSOrangeRed;
+  }
+}

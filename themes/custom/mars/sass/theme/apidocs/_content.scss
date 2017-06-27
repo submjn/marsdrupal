@@ -1,0 +1,25 @@
+.content {
+  /*position: absolute;
+  left: 254px;
+  right: 5px;
+  top: 88px;
+  bottom: 0;
+  overflow-y: scroll;
+  left: $sidebar-left-space;*/
+
+  margin-left: 260px;
+
+  .container-maverix {
+    //width: 680px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+    font-size: 13px;
+    color: #000000;
+    line-height: 16px;
+    /* Status:: */
+    //padding-top: 25px;
+    min-height: 400px;
+  }
+
+}
