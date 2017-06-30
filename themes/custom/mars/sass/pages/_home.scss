@@ -106,6 +106,22 @@
       }
     }
   }
+
+  .region-front-top {
+    width: 100%;
+    @include clearfix;
+    section {
+      float: left!important;
+      width: 33.33% !important;
+      position: relative;
+      min-height: 1px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .view-recent-articles-list {
+      .author, .list-inline { display: none; }
+    }
+  }
 }
 
 // Responsive

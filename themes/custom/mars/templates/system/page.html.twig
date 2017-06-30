@@ -91,14 +91,7 @@
                         <div{{ attributes.removeClass(sidebar_left_classes).addClass(content_classes) }}>
                             {# Content #}
                             {% block content %}
-                            <div class="layout-content">
-
-                                <div ng-app = "">
-                                    <p>Enter your Name: <input type = "text" ng-model = "name"></p>
-                                    <p>Hello <span ng-bind = "name"></span>!</p>
-                                </div>
-
-                                <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+                                <div class="layout-content">
                                 {{ page.content }}
                                 </div>{# /.layout-content #}
                             {% endblock %}
