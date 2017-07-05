@@ -107,7 +107,7 @@
     }
   }
 
-  .region-front-top {
+  .grid_column{
     width: 100%;
     @include clearfix;
     section {
@@ -131,8 +131,6 @@
       h4, p { display: none; }
     }
     .third-row {
-
-
       .column {
         margin-bottom: 20px!important;
       }
