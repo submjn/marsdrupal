@@ -65,7 +65,16 @@
         </div>
 
         {# templates/navigation/nav-header-bottom.html.twig #}
-        {% include directory ~ '/templates/navigation/nav--breadcrumb.html.twig' %}
+        {#{% include directory ~ '/templates/navigation/nav--breadcrumb.html.twig' %}#}
+        <header id="breadcrumbBar" role="navigation">
+            <div class="{{ container }}">
+                {% if page.breadcrumb %}
+                    {% block breadcrumb %}
+                        {{ page.breadcrumb }}
+                    {% endblock %}
+                {% endif %}
+            </div>
+        </header>
     </div>
 
 
@@ -105,17 +114,17 @@
                         {# Page Top #}
                         {% if page.front_top %}
                             {% block top %}
-                                <div class="page-top" role="contentinfo">
+                                <div class="page-top second-row" role="contentinfo">
                                     {{ page.front_top }}
                                 </div>
                             {% endblock %}
                         {% endif %}
 
                         {# Page Column Grid #}
-                        {% if page.grid_column %}
-                            {% block grid_column %}
+                        {% if page.column_grid %}
+                            {% block column_grid %}
                                 <div class="grid_column third-row" role="contentinfo">
-                                    {{ page.grid_column }}
+                                    {{ page.column_grid }}
                                 </div>
                             {% endblock %}
                         {% endif %}

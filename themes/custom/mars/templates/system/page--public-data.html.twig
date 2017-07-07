@@ -1,5 +1,5 @@
 {# Page: Public Data #}
-{% set container = mars.settings.fluid_container ? 'container-fluid' : 'container' %}
+{% set container = 'container-fluid' %}
 
 <div id="page" class="layout-container">
     {# Header #}
@@ -88,21 +88,14 @@
                     {% endif %}
 
 
-                    <div class="row main-content-section">
+                    <div ng-app="app" class="row main-content-section">
+                        <div ng-controller="mainController" class="row main-content">
+                            <section-filter></section-filter>
 
-                        <h1>Custom Public Data Page</h1>
-                        <h2>page--public-data.html.twig</h2>
-                        {#{% if page.sidebar_left %}#}
-                            {#<div{{ attributes.addClass(sidebar_left_classes) }}>#}
-                                {#{{ page.sidebar_left }}#}
-                            {#</div>#}
-                        {#{% endif %}#}
+                            <section-result></section-result>
+                        </div>
+                        <loading></loading>
 
-                        {#{% if page.sidebar_right %}#}
-                            {#<div{{ attributes.removeClass(content_classes).addClass(sidebar_right_classes) }}>#}
-                                {#{{ page.sidebar_right }}#}
-                            {#</div>#}
-                        {#{% endif %}#}
                     </div>
                 </div>
             </main>

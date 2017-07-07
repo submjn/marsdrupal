@@ -58,16 +58,30 @@
       }
     }
   }
+  .btn-header-wrap {
+    border-bottom: 5px solid $AMSGrassGreen;
+  }
   .page-title-btn {
     //margin-bottom: -66px;
     border-radius: 0;
     background-color: $AMSGrassGreen;
-    position: absolute;
-    left: 0;
-    top: 8px
+    //position: absolute;
+    //left: 0;
+    //top: 8px
+    &:hover {
+      background-color: $AMSGrassGreen;
+    }
   }
   .form-inline {
     padding: 10px 0;
+  }
+  .content-row {
+    margin-bottom: 30px;
+  }
+  .service-row {
+    .header {
+      padding-top: 10px;
+    }
   }
 }
 
