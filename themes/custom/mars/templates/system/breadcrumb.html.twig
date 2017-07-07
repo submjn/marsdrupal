@@ -10,23 +10,18 @@
  */
 #}
 <div class="col-sm-6">
-    {% if breadcrumb %}
-        <ol class="breadcrumb">
-            {% for item in breadcrumb %}
-                <li {{ item.attributes }}>
-                    {% if item.url %}
-                        <a href="{{ item.url }}">{{ item.text }}</a>
-                    {% else %}
-                        {{ item.text }}
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ol>
-    {#{% else %}#}
-        {#<ol class="breadcrumb">#}
-            {#<li>#}
-                {#<a href="/mars-home">Mars Home</a>#}
-            {#</li>#}
-        {#</ol>#}
-    {% endif %}
+    {#{% if breadcrumb %}#}
+
+    {#{% endif %}#}
+    <ol class="breadcrumb">
+        {% for item in breadcrumb %}
+            <li {{ item.attributes }}>
+                {% if item.url %}
+                    <a href="{{ item.url }}">{{ item.text }}</a>
+                {% else %}
+                    {{ item.text }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
 </div>

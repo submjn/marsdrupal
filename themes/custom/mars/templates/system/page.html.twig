@@ -1,5 +1,5 @@
 {# Frontpage: Page Wrapper #}
-{% set container = mars.settings.fluid_container ? 'container-fluid' : 'container' %}
+{% set container = 'container-fluid' %}
 
 <div id="page" class="layout-container">
     {# Header #}
@@ -36,7 +36,16 @@
                 {# templates/navigation/nav-header-bottom.html.twig #}
                 {#{% include directory ~ '/templates/navigation/nav--header-bottom.html.twig' %}#}
                 {# templates/navigation/nav-header-bottom.html.twig #}
-                {% include directory ~ '/templates/navigation/nav--breadcrumb.html.twig' %}
+                {#{% include directory ~ '/templates/navigation/nav--breadcrumb.html.twig' %}#}
+                <header id="breadcrumbBar" role="navigation">
+                    <div class="{{ container }}">
+                        {% if page.breadcrumb %}
+                            {% block breadcrumb %}
+                                {{ page.breadcrumb }}
+                            {% endblock %}
+                        {% endif %}
+                    </div>
+                </header>
 
             {% endblock %}
         {% endif %}

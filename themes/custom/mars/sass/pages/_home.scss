@@ -53,7 +53,7 @@
   }
 
   .third-row {
-    h4 {
+    h3 {
       color: $AMSGrassGreen;
       border-bottom: 5px solid $AMSGrassGreen;
       margin: 5px 0;
@@ -107,7 +107,7 @@
     }
   }
 
-  .region-front-top {
+  .grid_column{
     width: 100%;
     @include clearfix;
     section {
@@ -131,8 +131,6 @@
       h4, p { display: none; }
     }
     .third-row {
-
-
       .column {
         margin-bottom: 20px!important;
       }

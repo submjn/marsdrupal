@@ -15,6 +15,7 @@ regions:
   col_One_third: 'Column 13'
   col_two_third: 'Column 23'
   front_top: 'Front Page top'
+  column_grid: 'Grid Column'
   content: 'Content'
   front_bottom: 'Front Page bottom'
   footer: 'Footer'
@@ -25,3 +26,4 @@ regions:
 libraries:
   - 'mars/global-styling'
   - 'mars/bootstrap-scripts'
+  - 'mars/angular-app'
