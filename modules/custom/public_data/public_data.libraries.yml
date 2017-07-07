@@ -2,15 +2,16 @@ angularjs:
   version: VERSION
   js:
     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js':  {type: external}
-
-public_data_css:
-  css:
-    theme:
-      css/style.css: {}
-public_data:
+    
+public_data_js:
   js:
     js/commonLib.js: {}
     js/marsApp.min.js: {}
 
-  dependencies:
-    - public_data/angularjs
+public_data_css:
+  css:
+    theme:
+      css/custom.css: {}
+
+#  dependencies:
+#    - public_data/angularjs

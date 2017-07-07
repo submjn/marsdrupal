@@ -1,0 +1,13 @@
+<?php
+/**
+ *  Implements hook_theme()
+ */
+
+function public_data_theme(){
+  return array(
+      'public_data_view' => array (
+        'template' => 'view',
+        'variables' => array(),
+      )
+  );
+}

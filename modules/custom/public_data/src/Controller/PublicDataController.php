@@ -11,9 +11,10 @@ class PublicDataController extends ControllerBase {
       '#theme' => 'public_data_view',
       //'#title' => $title,
     );
+
+    //$build['myelement']['#attached']['library'][] = 'public_data/angularjs';
+    $build['myelement']['#attached']['library'][] = 'public_data/public_data_js';
     $build['myelement']['#attached']['library'][] = 'public_data/public_data_css';
-    $build['myelement']['#attached']['library'][] = 'public_data/angularjs';
-    $build['myelement']['#attached']['library'][] = 'public_data/public_data';
     return $build;
   }
 }
