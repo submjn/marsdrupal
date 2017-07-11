@@ -1,0 +1,51 @@
+/*
+ * Namespace: DTE - DataTables Editor - Body
+ */
+.DTE_Body {
+  padding: 50px 0;
+  &_Content {
+    position: relative;
+    overflow: auto;
+    .DTE_Form_Info {
+      padding: 1em 1em 0 1em;
+      margin: 0;
+    }
+    .DTE_Field {
+      position: relative;
+      zoom: 1;
+      clear: both;
+      padding: 5px 20%;
+      border: 1px solid transparent;
+      &:after {
+        display: block;
+        content: ".";
+        height: 0;
+        line-height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+      &:hover {
+        background-color: #f9f9f9;
+        border: 1px solid #f3f3f3;
+      }
+      & > label {
+        float: left;
+        width: 40%;
+        padding-top: 6px;
+      }
+      & > .DTE_Field_Input {
+        float: right;
+        width: 60%;
+      }
+    }
+  }
+}
+
+/* Html with RTL */
+html[dir="rtl"] {
+  .DTE_Body .DTE_Body_Content .DTE_Field {
+    & > label { float: right; }
+    & > .DTE_Field_Input { float: left; }
+  }
+  .DTE .DTE_Form_Buttons button { float: left; }
+}

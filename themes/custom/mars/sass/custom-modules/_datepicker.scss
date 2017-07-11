@@ -1,0 +1,53 @@
+// Datepicker
+div.ui-datepicker { font-size: 11px; }
+#datepicker { border-radius:3px; }
+#ui-datepicker-div{
+  background: $AMSDarkWhite;
+  width: 10%;
+
+  .ui-datepicker {
+    &-calendar{
+      margin-left: 5%;
+      width: 100%;
+    }
+    &-header{
+      margin-left: 5%;
+      width: 26px;
+    }
+    &-next{
+      font-size: 15px;
+      margin-left: 100%;
+      margin-right: 100%;
+    }
+    &-prev{
+      font-size: 15px;
+      margin-left: 100%;
+      margin-right: 100%;
+    }
+    &-title{
+      font-size: 15px;
+    }
+  }
+}
+
+.is-editing-date .DTE_Bubble_Liner .DTE_Bubble_Table .DTE_Form_Buttons .btn {
+  margin-top: -70%;
+}
+
+report-datepicker { display: block; }
+
+.daterangepicker {
+  &.opensright {
+    &:before, &:after {
+      width: 10px;
+    }
+  }
+
+  td {
+    &.today.active, &.active, &.active:hover {
+      background-color: $AMSSpringGreen!important;
+      border-color: $AMSSpringGreen!important;;
+      color: $AMSDarkGreen!important;;
+    }
+  }
+}

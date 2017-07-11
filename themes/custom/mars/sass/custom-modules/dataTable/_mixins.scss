@@ -1,0 +1,95 @@
+$inputTypes: color date datetime datetime-local email month number password search tel text time url week;
+
+@mixin linear-gradient-b($args...) {
+  background-image: -o-linear-gradient($args);
+  background-image: -moz-linear-gradient($args);
+  background-image: -webkit-linear-gradient($args);
+  background-image: -ms-linear-gradient($args);
+  background-image: linear-gradient($args);
+}
+@mixin radial-gradient-b($from, $to) {
+  background: -moz-radial-gradient(center, ellipse farthest-corner, $from 0%, $to 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $from), color-stop(100%, $to));
+  background: -webkit-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -o-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -ms-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: radial-gradient(ellipse farthest-corner at center, $from 0%, $to 100%);
+}
+@mixin box-shadow($args...){
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+@mixin box-sizing($args...){
+  -webkit-box-sizing: $args;
+  -moz-box-sizing: $args;
+  box-sizing: $args;
+}
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin animation-name($name){
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
+@mixin animation-duration($duration){
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+}
+@mixin animation-fill-mode($fill-mode){
+  -webkit-animation-fill-mode: $fill-mode;
+  -moz-animation-fill-mode: $fill-mode;
+  -o-animation-fill-mode: $fill-mode;
+  animation-fill-mode: $fill-mode;
+}
+@mixin animation-iteration-count($iteration-count){
+  -webkit-animation-iteration-count: $iteration-count;
+  -moz-animation-iteration-count: $iteration-count;
+  -o-animation-iteration-count: $iteration-count;
+  animation-iteration-count: $iteration-count;
+}
+@mixin animation-timing-function($timing-function){
+  -webkit-animation-timing-function: $timing-function;
+  -moz-animation-timing-function: $timing-function;
+  -o-animation-timing-function: $timing-function;
+  animation-timing-function: $timing-function;
+}
+@mixin animation-direction($direction){
+  -webkit-animation-direction: $direction;
+  -moz-animation-direction: $direction;
+  -o-animation-direction: $direction;
+  animation-direction: $direction;
+}
+
+@mixin transform($args...){
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+
+@-webkit-keyframes buttonPulse {
+  0% { opacity: 0; }
+  100% { opacity: 0.2; }
+}
+@-moz-keyframes buttonPulse {
+  0% { opacity: 0; }
+  100% { opacity: 0.2; }
+}
+@-o-keyframes buttonPulse {
+  0% { opacity: 0; }
+  100% { opacity: 0.2; }
+}
+@keyframes buttonPulse {
+  0% { opacity: 0; }
+  100% { opacity: 0.2; }
+}

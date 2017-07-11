@@ -1,0 +1,175 @@
+.advanced-view {
+  .mars-accordion-container {
+    margin-top:20px;
+  }
+}
+
+.flyout {
+  .mars-accordion-section { margin-bottom: 0!important; }
+  .mars-accordion-header { display: none!important; }
+  .mars-accordion-content { display:block!important; }
+}
+
+.row.data-table-wrapper.closer-top-margin{
+  margin: 0 3px;
+}
+
+.mars-accordion-container {
+
+  .mars-accordion-section {
+    border: 1px solid #CCC;
+    margin-bottom: 10px;
+
+    .mars-accordion-content {
+      &.collapse {
+        display: none!important;
+        &.in { display: block!important; }
+      }
+    }
+
+    .mars-accordion-header {
+      background-color: #E4E4E4;
+      margin: 0!important;
+      cursor: pointer;
+
+      h3 {
+        color: #333 !important;
+        text-transform: capitalize !important;
+        font-size: 16px;
+        height: 44px;
+        margin: 0 !important;
+        line-height: 44px;
+
+        &.popover-title {
+          margin: 0 !important;
+        }
+
+        i.fa {
+          margin-right: 5px;
+        }
+      }
+
+      .popover-content {
+        padding-top: 0;
+        ul.row {
+          margin: 10px 0 0 0;
+          padding: 0;
+          list-style: none;
+          &.sorting-preference {
+            label {
+              cursor: move;
+            }
+          }
+        }
+        div.row {
+          margin: 10px 0 0 0;
+        }
+      }
+
+      .tree-node-buttons-wrapper {
+        margin: 11px 15px 0 0;
+        .fa {
+          font-size: 24px;
+          cursor: pointer;
+        }
+      }
+
+      .switch-view {
+        margin: 5px 20px 0 0;
+
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .toggle-non-required-fields {
+      color: #2a5c0b;
+      font-size: 20px;
+      margin-top: 7px;
+      cursor: pointer;
+    }
+
+    .grid-field-spacer {
+      display: block;
+      width: 44px;
+    }
+
+    .custom-cal.mars-form-control {
+      min-height: 30px;
+      padding-top: 0;
+    }
+  }
+
+  .table-section, .dataTables_wrapper {
+    margin-left: 0 !important;
+
+    .dataTable thead tr th {
+      background-color: #E4E4E4;
+    }
+    .dataTables_length {
+      padding-top: 5px;
+      select.form-control {
+        padding: 0 10px;
+      }
+    }
+
+    .price-status {
+      min-width: 90px !important;
+    }
+  }
+
+  .section-fruit-and-vegetable {
+    margin-right: 0 !important;
+  }
+
+  .tree-node-child-1{
+    background: #E4E4E4 !important;
+  }
+
+  #section3-data-entry {
+    textarea {
+      resize:vertical;
+    }
+  }
+
+  .money-grid {
+    width: 58px;
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+  }
+
+  .chosen-container-active {
+    a.chosen-single {
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      border: 1px solid rgba(81, 203, 238, 1);
+    }
+  }
+}
+
+.filter-wrapper {
+  padding: 8px 8px 0 8px;
+  .row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .mars-accordion-section{
+    .mars-accordion-content{
+      padding: 15px 15px 15px 15px;
+    }
+  }
+  .custom-cal{
+    height: 45px;
+    line-height: 45px;
+  }
+}
+
+.tab-pane{
+  .mars-accordion-section{
+    border: none;
+    .mars-accordion-content {
+      padding: 0px !important;
+    }
+  }
+}
