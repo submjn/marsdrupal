@@ -1,0 +1,85 @@
+// Created By: Subash Maharjan(smaharjan@dminc.com)
+// Block Grid
+//
+// Basic Usage:
+//
+// <ul class=”block-grid-{screen-size}-{grid-column}”>
+//   <li class=”block-grid-item”>
+//      Your content Goes Here…
+//   </li>
+// </ul>
+
+
+$grid-gutter-width: 20px;
+$grid-columns: 12!default;
+$screen-sm-min: 767px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+// We use this to do clear floats
+@mixin clearfix {
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+[class*="block-grid-"] {
+  display: block;
+  padding: 0;
+  @include clearfix();
+}
+
+.block-grid-item {
+  display: inline;
+  margin: 0;
+  padding: ($grid-gutter-width/2);
+  height: auto;
+  float: left;
+  list-style: none;
+}
+
+@mixin block-grid ($per-row) {
+  & > .block-grid-item {
+    width: (100%/$per-row);
+
+    $nth-equation: #{$per-row}n+1;
+    &:nth-of-type(n) { clear: none; }
+    &:nth-of-type(#{$nth-equation}) { clear: both; }
+  }
+}
+
+// Recursive loop that produces rules for block grids of @per-row many items
+// per row down to 1 many items per row.
+@mixin block-grids($size, $per-row: 1) {
+  @if $per-row < $grid-columns + 1 {
+    .block-grid-#{$size}-#{$per-row} { @include block-grid($per-row); }
+    @include block-grids($size, $per-row + 1);
+  }
+}
+
+@include block-grids(xs);
+@media (min-width: $screen-sm-min) { @include block-grids(sm) }
+@media (min-width: $screen-md-min) { @include block-grids(md) }
+@media (min-width: $screen-lg-min) { @include block-grids(lg) }
+
+//Custom Code
+.block-grid-item {
+  .form-group {
+    width: 100%;
+    margin: 0;
+    button{
+      width: 100%;
+      border-radius: 0;
+      min-height: 45px;
+      line-height: 2.22;
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+}
+
+/*Custom*/
+.filter-wrapper {
+  .block-grid-item {
+    padding: 0 2px;
+  }
+}

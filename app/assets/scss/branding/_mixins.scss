@@ -1,0 +1,31 @@
+// Mixins
+@mixin setRpHomeBtnListStyle() {
+  width : 100%;
+  margin-bottom: 10px;
+}
+
+@mixin setTopFilterContainerBorder($width) {
+  border-left: $width solid transparent;
+  border-right: $width solid transparent;
+}
+
+%setEllipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+%setDropdownStyle {
+  background-color: transparent;
+  color : $form-control-text-color;
+}
+
+%setChevronDownIcon {
+  background: transparent url("../../assets/img/chevron-down-ic.png") no-repeat 96% center;
+  background-size: 12px;
+}
+
+%setChevronUpDownIcon {
+  background: transparent url("../../assets/img/chevron-up-down-ic.png") no-repeat 96% center;
+  background-size: 12px;
+}

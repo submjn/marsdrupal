@@ -1,0 +1,111 @@
+ <div class="datagrid-view">
+<!--     <div class="no-entries clearfix">
+        <div class="pull-right">
+            <dc-search-box table-columns="tableColumns" 
+                search-submit="searchCallBack($attrId, $searchValue)"
+                clear-search-call-back="searchReset()"
+                ng-if="tableOptions.searching">
+        </div>
+    </div> -->
+    <div class="dataTables_wrapper">
+        <table class="table nowrap inner-dataTable dataTable nofooter" id="{{tableId}}">
+            <thead>
+                <th ng-repeat="col in tableColumns track by col.attrId" ng-click="sort(col)" id="{{tableId + '__' + col.attrId}}"
+                        ng-if="col.isFirstRow">
+                    <span>{{col.name}}</span>&nbsp;
+                    <i  class="sort-icon fa" 
+                        ng-class="{
+                            'fa-sort-asc': gridState.order.column && gridState.order.column.attrId == col.attrId && gridState.order.asc, 
+                            'fa-sort-desc': gridState.order.column && gridState.order.column.attrId == col.attrId && !gridState.order.asc}"
+                        ng-if="col.attrId != $scope.controlChildRowId"></i>
+                </th>
+            </thead>
+            <tbody ng-hide="gridState.isFiltering || !gridState.records || gridState.records.length == 0">
+                <tr ng-repeat-start="record in gridState.records track by record.id">
+                    <td ng-repeat="field in tableColumns track by field.attrId" ng-if="field.isFirstRow" 
+                            ng-include="'row_renderer.html'">
+                    </td>
+                </tr>
+                <tr ng-repeat-end ng-if="rowState[record.id].showingChildRow" ng-class="{'highlight-row': record.statusCode == 'E'}">
+                    <td colspan="{{firstRowLength + 2}}">
+                        <div style="margin-left: 25px;">
+                            <table class="width-full">
+                                <thead> 
+                                    <tr>
+                                        <th ng-repeat="col in secondRowCols track by col.attrId">
+                                            <span>{{col.name}}</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td ng-repeat="field in secondRowCols track by field.attrId" ng-include="'row_renderer.html'">
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="ng-hide" ng-show="!gridState.isFiltering && (!gridState.records || gridState.records.length == 0)">
+                <tr class="odd">
+                    <td valign="top" colspan="{{tableColumns.length}}" class="dataTables_empty">
+                        No data available in table.
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="ng-hide" ng-show="gridState.isFiltering">
+                <tr class="odd">
+                    <td valign="top" colspan="{{tableColumns.length}}" class="dataTables_empty">
+                        <b>LOADING...</b>
+                    </td>
+                </tr>
+            </tbody>
+
+
+
+        </table>
+
+        <div class="dataTables_length">
+            <label>
+                <select class="form-control input-sm"
+                    ng-model="gridState.pageSize" 
+                    ng-change="refreshData()"
+                    ng-if="tableOptions.showPageSize">
+                    <option value="10">10</option>
+                    <option value="25">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="dataTables_paginate paging_full_numbers">
+            <ul 
+                class="pagination" 
+                uib-pagination 
+                total-items="gridState.totalRecords" 
+                items-per-page="gridState.pageSize" 
+                ng-model="gridState.pageIndex" 
+                ng-if="tableOptions.paging"
+                ng-change="refreshData()"
+                boundary-link-numbers="true" 
+                rotate="true" 
+                max-size="5">
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="row_renderer.html" >
+        <div ng-if="field.attrId != controlChildRowId">
+             {{record[field.attrId]}}
+        </div> 
+        <div ng-if="field.attrId == controlChildRowId" class="mars-tooltip" title="Control">
+            <a ng-click="showChildRow(record)" style="color: #2a5c0b; font-size: 16px;">
+                <i class="fa" 
+                    ng-class="{'fa-plus-circle' : !rowState[record.id].showingChildRow, 'fa-minus-circle' : rowState[record.id].showingChildRow }"></i>
+            </a>
+        </div>
+    </script>
+</div>

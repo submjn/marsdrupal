@@ -1,0 +1,25 @@
+.popover {
+  border: none!important;
+  border-radius: 0!important;
+  &-title {
+    background: $AMSSpringGreen;
+    color: $AMSDarkGreen;
+  }
+  &.left > .arrow {
+    border-left-color: $AMSMediumGray!important;
+  }
+}
+
+// page specific
+%inline-edit-close-button {
+  top: 5px!important;
+  right: 5px!important;
+  background-color: $AMSWhite!important;
+  box-shadow: none!important;
+  &:after {
+    color: $AMSGray!important;
+  }
+}
+.prepare-close-inline-edit {
+  @extend %inline-edit-close-button;
+}
