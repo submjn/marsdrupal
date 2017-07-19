@@ -1,0 +1,4 @@
+name: Api
+type: module
+description: 'Api Angularjs Module'
+core: 8.x

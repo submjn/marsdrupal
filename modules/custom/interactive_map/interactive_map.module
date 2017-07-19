@@ -1,0 +1,13 @@
+<?php
+/**
+ *  Implements hook_theme()
+ */
+
+function interactive_map_theme(){
+  return array(
+      'interactive_map_view' => array (
+        'template' => 'view',
+        'variables' => array(),
+      )
+  );
+}

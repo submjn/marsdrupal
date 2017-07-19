@@ -3,12 +3,12 @@ angularjs:
   js:
     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js':  {type: external}
     
-public_data_js:
+interactive_map_js:
   js:
     js/commonLib.js: {}
-    js/marsapp.min.js: {}
+    js/marsApp.min.js: {}
 
-public_data_css:
+interactive_map_css:
   css:
     theme:
       css/custom.css: {}

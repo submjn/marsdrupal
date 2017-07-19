@@ -1,0 +1,7 @@
+api_view:
+  path: '/api'
+  defaults:
+    _title: 'API'
+    _controller: '\Drupal\api\Controller\ApiController::viewApi'
+  requirements:
+    _permission: 'access content'

@@ -3,15 +3,15 @@ angularjs:
   js:
     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js':  {type: external}
     
-public_data_js:
+api_js:
   js:
     js/commonLib.js: {}
-    js/marsapp.min.js: {}
+    js/marsApp.min.js: {}
 
-public_data_css:
+api_css:
   css:
     theme:
       css/custom.css: {}
 
 #  dependencies:
-#    - public_data/angularjs
+#    - api/angularjs

@@ -1,0 +1,13 @@
+<?php
+/**
+ *  Implements hook_theme()
+ */
+
+function api_theme(){
+  return array(
+      'api_view' => array (
+        'template' => 'view',
+        'variables' => array(),
+      )
+  );
+}
