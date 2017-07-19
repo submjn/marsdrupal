@@ -48,3 +48,4 @@ sites/marsdrupal.dd/
 
 '~/
 node_modules/
+node_modules/.bin/
