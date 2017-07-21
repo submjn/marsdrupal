@@ -22,32 +22,6 @@ bootstrap-scripts:
     js/jquery.flexslider-min.js: {}
     js/slideshow.js: {}
 
-angular-app:
-  js:
-    app/assets/lib/other/jquery.min.js: {}
-    app/assets/lib/jquery-ui/jquery-ui-1.10.4.custom.min.js: {}
-    app/assets/lib/angularjs/angular.min.js: {}
-    app/assets/lib/angularjs/angular-resource.min.js: {}
-    app/assets/lib/angular-tooltips/angular-tooltips.js: {}
-    app/assets/lib/angular-ui/ui-tree/angular-ui-tree.min.js: {}
-    app/assets/lib/angular-ui/ui-datetimepicker/datetimepicker.js: {}
-    app/assets/lib/angular-ui/select-chosen/chosen.jquery.min.js: {}
-    app/assets/lib/angular-ui/select-chosen/angular-chosen.min.js: {}
-    app/assets/lib/other/deep-diff-0.3.2.min.js: {}
-    app/assets/lib/other/deep-diff-0.3.2.min.js: {}
-    app/assets/lib/other/lodash.min.js: {}
-    app/assets/lib/other/ie10-viewport-bug-workaround.js: {}
-    app/assets/lib/other/preventNavigatingOnBackspace.js: {}
-    app/assets/lib/ngstorage/ngStorage.min.js: {}
-    app/assets/lib/seedrandom/seedrandom.js: {}
-    app/assets/lib/angucomplete-alt/angucomplete-alt.min.js: {}
-    app/assets/lib/bootstrap/js/ui-bootstrap-tpls-2.0.1.min.js: {}
-    app/assets/lib/angular-tooltips/jquery.tooltipster.min.js: {}
-    app/assets/lib/ngstorage/ngStorage.min.js: {}
-    app/assets/lib/easyui/jquery.easyui.min.js: {}
-    app/assets/lib/other/moment.min.js: {}
-    app/assets/dist/js/marsApp.min.js: {}
-
 #flexslider:
 #  version: 1.x
 #  css:

@@ -1,0 +1,17 @@
+angularjs:
+  version: VERSION
+  js:
+    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js':  {type: external}
+    
+api_js:
+  js:
+    js/commonLib.js: {}
+    js/marsApp.min.js: {}
+
+api_css:
+  css:
+    theme:
+      css/custom.css: {}
+
+#  dependencies:
+#    - api/angularjs

@@ -1,0 +1,46 @@
+/*
+ * Namespace: DTE - DataTables Editor - Inline
+ */
+.DTE_Inline {
+  position: relative;
+  display: table;
+  width: 100%;
+
+  &_Field, &_Buttons {
+    display: table-cell;
+    vertical-align: middle;
+    .DTE_Field {
+      padding: 0;
+      & > label {
+        display: none;
+      }
+    }
+    .DTE_Form_Buttons button {
+      margin: -6px 0 -6px 4px;
+      padding: 5px;
+    }
+  }
+
+  .DTE_Field {
+    @each $type in $inputTypes {
+      input[type="#{$type}"]{
+        margin: -6px 0;
+      }
+    }
+  }
+
+  &.DTE_Processing:after {
+    position: absolute;
+    content: ' ';
+    display: block;
+    top: 4px;
+    right: 10px;
+    height: 12px;
+    width: 17px;
+    background: url("../images/ajax-loader-small.gif") no-repeat top left;
+  }
+}
+
+span.dtr-data div.DTE_Inline {
+  display: inline-table;
+}

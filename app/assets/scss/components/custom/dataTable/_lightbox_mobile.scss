@@ -1,0 +1,47 @@
+/*
+ * Namespace: DTED - DataTables Editor Display - Lightbox Mobile
+ */
+body.DTED_Lightbox_Mobile {
+  .DTED_Lightbox {
+    &_Background { height: 0; }
+    &_Shown { display: none; }
+    &_Wrapper {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      width: auto;
+      height: auto;
+      margin-left: 0;
+      -webkit-overflow-scrolling: touch;
+      .DTED_Lightbox_Container {
+        display: block;
+        .DTED_Lightbox_Content_Wrapper {
+          display: block;
+          .DTED_Lightbox_Content {
+            border: 4px solid rgba(220, 220, 220, 0.5);
+            border-radius: 0;
+            .DTE {
+              border-radius: 0;
+              box-shadow: 0 0 5px #555;
+              border: 2px solid #444;
+              .DTE_Header {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+              }
+              .DTE_Footer {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              }
+            }
+            .DTED_Lightbox_Close {
+              top: 11px;
+              right: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

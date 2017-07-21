@@ -1,0 +1,419 @@
+/*
+ * angular-tooltips
+ * 1.0.9
+ *
+ * Angular.js tooltips module.
+ * http://720kb.github.io/angular-tooltips
+ *
+ * MIT license
+ * Wed Apr 13 2016
+ */
+
+$tooltip-bg-color: $button-bg-color; //rgba($AMSGrassGreen, 0.9);
+$tooltip-color: $button-text-color;
+$tooltip-border-radius: 3px;
+$tooltip-arrow-border-color: $AMSGrassGreen;
+$tooltip-arrow-position: -7px;
+
+%tooltip-feature{
+  border-radius: $tooltip-border-radius;
+  background: $tooltip-bg-color;
+  color: $tooltip-color;
+}
+
+._exradicated-tooltip {
+  position: absolute;
+  display: block;
+  opacity: 1;
+  z-index: 3000; }
+
+@-webkit-keyframes animate-tooltip {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: .5; }
+  60% {
+    opacity: .8; }
+  70% {
+    opacity: .9; }
+  90% {
+    opacity: 1; } }
+@-moz-keyframes animate-tooltip {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: .5; }
+  60% {
+    opacity: .8; }
+  70% {
+    opacity: .9; }
+  90% {
+    opacity: 1; } }
+@-ms-keyframes animate-tooltip {
+  tooltip 0% { opacity: 0; }
+  tooltip 50% { opacity: .5; }
+  tooltip 60% { opacity: .8; }
+  tooltip 70% { opacity: .9; }
+  tooltip 90% { opacity: 1; }
+}
+
+@keyframes animate-tooltip {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: .5; }
+  60% {
+    opacity: .8; }
+  70% {
+    opacity: .9; }
+  90% {
+    opacity: 1; } }
+
+tooltip {
+  display: inline-block;
+  position: relative;
+
+  &._multiline { display: block; }
+  &._slow._ready tip { animation: animate-tooltip 0.65s; }
+  &._fast._ready tip { animation: animate-tooltip 0.15s; }
+  &._steady._ready tip { animation: animate-tooltip 0.35s; }
+
+  tip {
+    @extend %tooltip-feature;
+    display: none;
+    line-height: normal;
+    max-width: 500px;
+    min-width: 100px;
+    opacity: 0;
+    padding: 8px 16px;
+    position: absolute;
+    text-align: center;
+    width: auto;
+    will-change: top, left, bottom, right;
+    font-weight: normal;
+
+    &._hidden {
+      display: block;
+      visibility: hidden;
+    }
+  }
+
+  &.active tip {
+    display: block;
+    opacity: 1;
+    z-index: 999;
+  }
+
+  tip-tip {
+    font-size: .95em;
+    &._large { font-size: 1.1em; }
+    &._small { font-size: .8em; }
+  }
+
+  &._top tip {
+    left: 50%;
+    top: -5px;
+    -webkit-transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
+    tip-arrow {
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid $tooltip-bg-color;
+      left: 50%;
+      top: 100%;
+      content: '';
+      height: 0;
+      margin-left: -6px;
+      position: absolute;
+      width: 0;
+    }
+  }
+  &._bottom tip {
+    right: 50%;
+    top: 100%;
+    -webkit-transform: translateX(50%) translateY(9px);
+    transform: translateX(50%) translateY(9px);
+    tip-arrow {
+      border-bottom: 6px solid $tooltip-bg-color;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      bottom: 100%;
+      left: 50%;
+      content: '';
+      height: 0;
+      margin-left: -6px;
+      position: absolute;
+      width: 0;
+    }
+  }
+  &._right tip {
+    left: 100%;
+    top: 50%;
+    -webkit-transform: translateX(9px) translateY(-50%);
+    transform: translateX(9px) translateY(-50%);
+    tip-arrow {
+      border-bottom: 6px solid transparent;
+      border-right: 6px solid $tooltip-bg-color;
+      border-top: 6px solid transparent;
+      right: 100%;
+      top: 50%;
+      content: '';
+      height: 0;
+      margin-left: -6px;
+      position: absolute;
+      width: 0;
+    }
+  }
+  &._left tip {
+    left: -9px;
+    top: 50%;
+    -webkit-transform: translateX(-100%) translateY(-50%);
+    transform: translateX(-100%) translateY(-50%);
+    tip-arrow {
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid $tooltip-bg-color;
+      border-top: 6px solid transparent;
+      left: 100%;
+      top: 50%;
+      content: '';
+      height: 0;
+      margin-left: -6px;
+      position: absolute;
+      width: 0;
+    }
+  }
+}
+
+tip-tip #close-button {
+  cursor: pointer;
+  float: right;
+  left: 8%;
+  margin-top: -7%;
+  padding: 3px;
+  position: relative; }
+
+/*# sourceMappingURL=angular-tooltips.css.map */
+
+
+.tooltip-wrapper {
+  height: 0;
+}
+
+.adding-row-header {
+  tooltip._top tip {
+    top: -20px;
+  }
+}
+
+
+@mixin cross-browser-property($property, $value, $crossbrowser: false){
+  @if($crossbrowser == true){
+    -webkit-#{$property}: -webkit-#{$value};
+    -moz-#{$property}: -moz-#{$value};
+    -o-#{$property}: -o-#{$value};
+    -ms-#{$property}: -ms-#{$value};
+  } @else {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -o-#{$property}: $value;
+    -ms-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+//-------------
+/* Tooltipster */
+/* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
+.tooltipster {
+  &-default {
+    @extend %tooltip-feature;
+
+    /* Use this next selector to style things like font-size and line-height: */
+    .tooltipster-content {
+      font-size: 14px;
+      line-height: 16px;
+      padding: 8px 10px;
+      overflow: hidden;
+    }
+
+    /* This next selector defines the color of the border on the outside of the arrow.
+    This will automatically match the color and size of the border set on the main tooltip styles.
+    Set display: none; if you would like a border around the tooltip but no border around the arrow */
+    .tooltipster-arrow .tooltipster-arrow-border {
+      /* border-color: ... !important; */
+      border-color: $tooltip-arrow-border-color!important;
+    }
+
+    /* If you're using the icon option, use this next selector to style them */
+    .tooltipster-icon {
+      cursor: help;
+      margin-left: 4px;
+    }
+  }
+
+  /* This is the base styling required to make all Tooltipsters work */
+  &-base {
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+    pointer-events: none;
+    width: auto;
+    overflow: visible;
+
+    .tooltipster-content { overflow: hidden; }
+  }
+
+  /* These next classes handle the styles for the little arrow attached to the tooltip.
+  By default, the arrow will inherit the same colors and border as what is set on the main tooltip itself. */
+  &-arrow {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    span, &-border {
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    &-top, &-top-right, &-top-left {
+      span, .tooltipster-arrow-border { bottom: $tooltip-arrow-position; }
+    }
+    &-bottom, &-bottom-right, &-bottom-left {
+      span, .tooltipster-arrow-border { top: $tooltip-arrow-position; }
+    }
+    &-top, &-top-right, &-top-left, &-bottom, &-bottom-right, &-bottom-left {
+      .tooltipster-arrow-border {
+        border-left: 9px solid transparent !important;
+        border-right: 9px solid transparent !important;
+        border-top: 9px solid;
+      }
+    }
+    &-top, &-bottom {
+      span, &-right span, &-left span {
+        border-left: 8px solid transparent !important;
+        border-right: 8px solid transparent !important;
+        border-top: 8px solid;
+      }
+      span, .tooltipster-arrow-border {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+      &-left {
+        span { left: 6px; }
+        .tooltipster-arrow-border { left: 5px; }
+      }
+      &-right {
+        span { right: 6px; }
+        .tooltipster-arrow-border { right: 5px; }
+      }
+    }
+    &-left, &-right {
+      span, .tooltipster-arrow-border {
+        border-top: 8px solid transparent !important;
+        border-bottom: 8px solid transparent !important;
+        top: 50%;
+        margin-top: $tooltip-arrow-position;
+      }
+      .tooltipster-arrow-border {
+        border-top: 9px solid transparent !important;
+        border-bottom: 9px solid transparent !important;
+      }
+    }
+    &-left {
+      span, .tooltipster-arrow-border {
+        border-left: 8px solid;
+        right: $tooltip-arrow-position;
+      }
+      .tooltipster-arrow-border { border-left: 9px solid; }
+    }
+    &-right {
+      span, .tooltipster-arrow-border {
+        border-right: 8px solid;
+        left: $tooltip-arrow-position;
+      }
+      .tooltipster-arrow-border { border-right: 9px solid; }
+    }
+  }
+
+  /* Some CSS magic for the awesome animations - feel free to make your own custom animations and reference it in your Tooltipster settings! */
+  &-fade {
+    opacity: 0;
+    @include cross-browser-property('transition-property', opacity);
+    &-show {
+      opacity: 1;
+    }
+  }
+  &-grow {
+
+    @include cross-browser-property('transform', scale(0,0));
+    @include cross-browser-property('transition-property', 'transform', true);
+    -webkit-backface-visibility: hidden;
+
+    &-show {
+      @include cross-browser-property('transform', scale(1,1));
+      -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+      @include cross-browser-property('transition-timing-function', cubic-bezier(0.175, 0.885, 0.320, 1.15));
+    }
+  }
+  &-swing {
+    opacity: 0;
+    @include cross-browser-property('transform', rotateZ(4deg));
+    @include cross-browser-property('transition-property', 'transform', true);
+    -webkit-transition-property: opacity;
+
+    &-show {
+      opacity: 1;
+      @include cross-browser-property('transform', rotateZ(0deg));
+      -webkit-transition-timing-function: cubic-bezier(0.230, 0.635, 0.495, 1);
+      @include cross-browser-property('transition-timing-function', cubic-bezier(0.230, 0.635, 0.495, 2.4));
+    }
+  }
+  &-fall {
+    top: 0;
+    @include cross-browser-property('transition-property', top);
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    @include cross-browser-property('transition-timing-function', cubic-bezier(0.175, 0.885, 0.320, 1.15));
+
+
+    &.tooltipster-dying {
+      @include cross-browser-property('transition-property', all);
+      top: 0px !important;
+      opacity: 0;
+    }
+  }
+  &-slide {
+    left: -40px;
+    @include cross-browser-property('transition-property', left);
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    @include cross-browser-property('transition-timing-function', cubic-bezier(0.175, 0.885, 0.320, 1.15));
+
+    &.tooltipster-dying {
+      @include cross-browser-property('transition-property', all);
+      left: 0px !important;
+      opacity: 0;
+    }
+  }
+
+  /* CSS transition for when contenting is changing in a tooltip that is still open.
+  The only properties that will NOT transition are: width, height, top, and left */
+  &-content-changing {
+    opacity: 0.5;
+    @include cross-browser-property('transform', scale(1.1, 1.1));
+  }
+}
+
+
+

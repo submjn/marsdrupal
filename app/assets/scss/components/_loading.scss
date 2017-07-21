@@ -1,0 +1,230 @@
+.loading-screen{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  align: center;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(54, 25, 25, .3);
+  z-index: 2000;
+
+  img{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    left: 45%;
+    top: 45%;
+  }
+}
+/*
+ *  Usage:
+ *
+      <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+      </div>
+ *
+ */
+
+$spinkit-spinner-margin: 40px auto !default;
+$spinkit-size: 40px !default;
+$spinkit-spinner-color: $AMSGrassGreen !default;
+
+.sk-folding-cube {
+  $cubeCount: 4;
+  $animationDuration: 2.4s;
+  $delayRange: $animationDuration/2;
+
+  margin: $spinkit-spinner-margin;
+  width: $spinkit-size;
+  height: $spinkit-size;
+  position: relative;
+  transform: rotateZ(45deg);
+
+  .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    transform: scale(1.1);
+  }
+
+  .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $spinkit-spinner-color;
+    animation: sk-foldCubeAngle $animationDuration infinite linear both;
+    transform-origin: 100% 100%;
+  }
+
+  // Rotation / angle
+  @for $i from 2 through $cubeCount {
+    .sk-cube#{$i} {
+      transform: scale(1.1) rotateZ(90deg * ($i - 1));
+    }
+  }
+
+  @for $i from 2 through $cubeCount {
+    .sk-cube#{$i}:before {
+      animation-delay: $delayRange / $cubeCount * ($i - 1);
+    }
+  }
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  } 25%, 75% {
+      transform: perspective(140px) rotateX(0deg);
+      opacity: 1;
+    } 90%, 100% {
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+      }
+}
+
+
+
+.spinner {
+  position: relative;
+  background-color: $AMSOliveGreen ;
+  width: 15px;
+  height: 15px;
+  margin: 100px auto;
+  border-radius: 50%;
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  &:after {
+    left: -15px;
+    top: -10px;
+    background-color: $AMSMintGreen;
+    transform-origin: 15px 10px;
+    animation: axis 1s linear infinite;
+  }
+  &:before {
+    left: -30px;
+    top: -20px;
+    background-color: $AMSSpringGreen;
+    transform-origin: 30px 20px;
+    animation: axis 2s linear infinite;
+  }
+}
+
+@keyframes axis {
+  0% {
+    transform: rotateZ(0deg) translate3d(0,0,0);
+  }
+  100% {
+    transform: rotateZ(360deg) translate3d(0,0,0);
+  }
+}
+
+/*Windows Style Preloader*/
+//Html Markup
+//<div id="preloader">
+//  <div class="loader">
+//    <span></span>
+//    <span></span>
+//    <span></span>
+//    <span></span>
+//  </div>
+//</div>
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 27, 35, 0.5);
+  z-index: 10000;
+}
+
+.loader {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  -webkit-animation: preloader_6 5s infinite linear;
+  animation: preloader_6 5s infinite linear;
+  left: 50%;
+  top: 50%;
+  margin-left: -21px;
+  margin-top: -21px;
+  span {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: red;
+    display: block;
+    -webkit-animation: preloader_6_span 1s infinite linear;
+    animation: preloader_6_span 1s infinite linear;
+    &:nth-child(1) {
+      background: $AMSMintGreen;
+    }
+    &:nth-child(2) {
+      left: 22px;
+      background: $AMSFaintSpringGreen;
+      -webkit-animation-delay: .2s;
+      animation-delay: .2s;
+    }
+    &:nth-child(3) {
+      top: 22px;
+      background: $AMSSpringGreen; //#3498db;
+      -webkit-animation-delay: .4s;
+      animation-delay: .4s;
+    }
+    &:nth-child(4) {
+      top: 22px;
+      left: 22px;
+      background: $AMSOliveGreen; //#f1c40f;
+      -webkit-animation-delay: .6s;
+      animation-delay: .6s;
+    }
+  }
+}
+
+@-webkit-keyframes preloader_6_span {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes preloader_6_span {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

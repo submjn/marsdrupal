@@ -1,0 +1,62 @@
+// Custom global modal
+.modal {
+  text-align: left;
+  &-content {
+    border-radius: 0;
+  }
+  &-header {
+    padding: 5px 10px;
+    background: $AMSSpringGreen;
+    .close {
+      margin-top: 0;
+      opacity: 1;
+
+      span {
+        background: $AMSWhite;
+        color: $AMSGray;
+        border-radius: 15px;
+        padding: 0px 6px;
+        font-size: 16px;
+      }
+    }
+  }
+  &-title {
+    color: $AMSDarkGreen;
+    .glyphicon {
+      color: $AMSSpringGreen;
+      font-size: 13px;
+      background: $AMSGrassGreen;
+      padding: 5px 6px 6px 6px;
+      border-radius: 50%;
+    }
+  }
+  &-body {
+    padding: 10px;
+  }
+  &-footer {
+    text-align: right;
+    border: none;
+    .btn-control {
+      margin-left: 0;
+      border: none;
+    }
+    .btn {
+      min-width: 80px;
+      color: $AMSDarkGreen;
+    }
+    .btn-cancel {
+      background: $AMSMediumGray;
+      color: $AMSBlack;
+      &:hover {
+        background: $AMSLightGray;
+        color: $AMSBlack;
+      }
+    }
+  }
+}
+
+.details-info-modal {
+  .modal-body {
+    padding: 0;
+  }
+}

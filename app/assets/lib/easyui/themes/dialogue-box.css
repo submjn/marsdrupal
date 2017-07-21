@@ -1,0 +1,57 @@
+#fm {
+    margin: 0;
+    padding: 10px 30px;
+}
+
+.ftitle {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.fitem {
+    margin-bottom: 1px;
+    /*vertical-align: top;*/
+    /*border: solid thin #004276;*/
+}
+
+.fitem label {
+    display: inline-block;
+    width: 100px;
+    /*border: solid thin #004276;*/
+    vertical-align: top;
+    padding-top: 3px;
+}
+
+.fitem input {
+    width: auto;
+}
+
+/*#fm {*/
+    /*margin: 0;*/
+    /*padding: 10px 30px;*/
+/*}*/
+
+/*.ftitle {*/
+    /*font-size: 14px;*/
+    /*font-weight: bold;*/
+    /*padding: 5px 0;*/
+    /*margin-bottom: 10px;*/
+    /*border-bottom: 1px solid #ccc;*/
+/*}*/
+
+/*.fitem {*/
+    /*margin-bottom: 5px;*/
+    /*vertical-align: top;*/
+    /*border: solid thin #004276;*/
+/*}*/
+
+/*.fitem label {*/
+    /*display: inline-block;*/
+    /*width: 80px;*/
+    /*border: solid thin #004276;*/
+    /*vertical-align: top;*/
+    /*padding-top: 3px;*/
+/*}*/

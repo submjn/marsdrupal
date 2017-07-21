@@ -1,0 +1,81 @@
+// TODO: move this to _helper.scss later
+.align {
+  &-left { text-align: left; }
+  &-center { text-align: center; }
+  &-right { text-align: right; }
+}
+
+.left { float: left; }
+.right { float: right; }
+
+.display-none { display: none; }
+.display-block { display: block!important; }
+.inline-block { display: inline-block!important; }
+.hideLabel { display: none!important; }
+[title="Flag"] { display: inline-block!important; }
+.width-full { width: 100%; }
+
+.break-word { word-wrap: break-word!important; }
+.white-bg { background: white; }
+.no-border { border: 0; }
+
+// boxed design and form in modal
+.box {
+  border: 1px solid $AMSMediumGray;
+  background: $AMSWhite;
+  header {
+    padding: 2px 10px;
+    border-bottom: 1px solid $AMSMediumGray;
+    h5 {
+      margin: 0;
+      vertical-align: middle;;
+      line-height: 2;
+    }
+  }
+  &-inner {
+    padding: 10px;
+  }
+}
+
+.grey-box {
+  background-color: $AMSLightGray;
+  height: 100%;
+}
+
+.form-in-modal {
+  .form-group, .form-control {
+    width: 100%;
+    margin: 0;
+  }
+  .fa-plus-circle {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-size: 20px;
+  }
+}
+
+// Global actionlink and Icon hover style
+@mixin action-link($color: $action-link-color, $hover-bg: $AMSMediumGray, $green: $AMSGrassGreen, $text-color: $AMSHeavyGray){
+    &:hover {
+      text-decoration: none;
+    }
+    i {
+      color: $color;
+      padding: 3px 4px;
+      &:hover {
+        background: $hover-bg;
+        border-radius: 50%;
+      }
+    }
+    &.details-control {
+      color: $green;
+      font-size: 18px;
+    }
+    span.text { color: $text-color; }
+}
+
+// common-action-link
+.action-link {
+  @include action-link();
+}

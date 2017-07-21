@@ -403,3 +403,27 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar td.future {}
 .calendar-calendar td.has-events {}
 .calendar-calendar td.has-no-events {}
+
+/*Next Auction Calendar Block*/
+#next-auction-block {
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 25px;
+}
+.next-auction-block--header {}
+.next-auction-block--content {}
+#next-auction-block .auction-month {}
+#next-auction-block .auction-day {}
+#next-auction-block .auction-time-and-weekday {}
+#next-auction-block .auction-location {}
+
+/*Calendar Dropdown Angularjs*/
+.uib-datepicker-popup.dropdown-menu {
+  border-radius: 0!important;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.uib-datepicker-popup .btn-sm, .uib-datepicker-popup .btn-group-sm>.btn {
+  border: 0!important;
+}

@@ -1,0 +1,113 @@
+/*
+ * Namespace: DTE - DataTables Editor
+ */
+.DTTT_container { float: left; }
+.DTE { position: relative; }
+.DTE .DTE {
+  // Processing Indicator
+  &_Processing_Indicator {
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    height: 32px;
+    width: 32px;
+    background: url("../images/ajax-loader.gif") no-repeat top left;
+    display: none;
+    z-index: 20;
+  }
+
+  // Header & Footer
+  &_Header {
+    top: 0;
+    padding: 16px 10px 2px 16px;
+    font-size: 1.3em;
+  }
+  &_Footer {
+    bottom: 0;
+    padding: 10px;
+    @include box-sizing(border-box);
+  }
+  &_Header, &_Footer {
+    position: absolute;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-top: 1px solid #ddd;
+    @include box-sizing(border-box);
+  }
+
+  // Form
+  &_Form {
+    &_Info {
+      margin-bottom: 0.5em;
+      display: none;
+    }
+    &_Content {
+      position: relative;
+      padding: 10px;
+    }
+    &_Error {
+      float: left;
+      padding: 5px;
+      display: none;
+      color: #b11f1f;
+    }
+  }
+
+  // Button
+  &_Button, &_Form_Buttons button {
+    position: relative;
+    text-align: center;
+    display: block;
+    margin-top: 0;
+    padding: 5px 15px;
+    cursor: pointer;
+    float: right;
+    font-size: 14px;
+    text-shadow: 0 1px 0 white;
+    border: 1px solid #999;
+    @include border-radius(4px);
+    @include box-shadow(1px 1px 3px #cccccc);
+    background-color: #f9f9f9 100%;
+    @include linear-gradient-b(top, white 0%, #eeeeee 65%, #f9f9f9 100%);
+
+    &:hover {
+      border: 1px solid #666;
+      @include box-shadow(1px 1px 3px #999999);
+      background-color: #f4f4f4 100%;
+      @include linear-gradient-b(top, #f3f3f3 0%, #dbdbdb 65%, #f4f4f4 100%);
+    }
+    &:active {
+      @include box-shadow(inset 1px 1px 3px #999999);
+    }
+    &:focus {
+      border: 1px solid #426c9e;
+      text-shadow: 0 1px 0 #c4def1;
+      background-color: #a3d0ef 100%;
+      @include linear-gradient-b(top, #a3d0ef 0%, #79ace9 65%, #a3d0ef 100%);
+      outline: none;
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+        display: block;
+        content: " ";
+        @include animation-name(buttonPulse);
+        @include animation-duration(1s);
+        @include animation-fill-mode(forwards);
+        @include animation-iteration-count(infinite);
+        @include animation-timing-function(linear);
+        @include animation-direction(alternate);
+      }
+    }
+  }
+}
+
+&.DTE_Action_Remove .DTE_Body_Content {
+  text-align: center;
+  padding: 20px 0;
+}

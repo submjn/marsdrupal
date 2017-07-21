@@ -1,0 +1,8 @@
+<div class="custom-datepicker custom-cal controls mars-form-control form-control width-full" ng-click="open($event)" tabindex="{{tabindex}}" ng-class="{'disabled': isDisabled}">
+    <i class="glyphicon glyphicon-calendar fa fa-calendar"  ></i>
+
+	  <input type="text" class="form-control" uib-datepicker-popup="{{format}}" readonly="readonly"
+	    ng-model="dt" is-open="status.opened" show-button-bar="{{!hideButtonBar}}" datepicker-append-to-body="true"
+	    datepicker-options="dateOptions"/> 
+    <b class="caret"></b>
+</div>

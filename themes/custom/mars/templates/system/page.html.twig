@@ -37,18 +37,20 @@
                 {#{% include directory ~ '/templates/navigation/nav--header-bottom.html.twig' %}#}
                 {# templates/navigation/nav-header-bottom.html.twig #}
                 {#{% include directory ~ '/templates/navigation/nav--breadcrumb.html.twig' %}#}
-                <header id="breadcrumbBar" role="navigation">
-                    <div class="{{ container }}">
-                        {% if page.breadcrumb %}
-                            {% block breadcrumb %}
-                                {{ page.breadcrumb }}
-                            {% endblock %}
-                        {% endif %}
-                    </div>
-                </header>
+
 
             {% endblock %}
         {% endif %}
+
+        <header id="breadcrumbBar" role="navigation">
+            <div class="{{ container }}">
+                {% if page.breadcrumb %}
+                    {% block breadcrumb %}
+                        {{ page.breadcrumb }}
+                    {% endblock %}
+                {% endif %}
+            </div>
+        </header>
     </headerGroup>
 
     <article>
@@ -58,26 +60,26 @@
                 <div class="content-wrapper">
                     {# Content #}
                     {%
-                        set sidebar_left_classes = [
-                            'content-left-sidebar',
-                            page.sidebar_right is empty ? 'col-md-4',
-                            page.sidebar_right ? 'col-md-3'
-                        ]
+                    set sidebar_left_classes = [
+                    'content-left-sidebar',
+                    page.sidebar_right is empty ? 'col-md-4',
+                    page.sidebar_right ? 'col-md-3'
+                    ]
                     %}
                     {%
-                        set content_classes = [
-                            'content-section',
-                            (page.sidebar_left and page.sidebar_right is empty) or (page.sidebar_right and page.sidebar_left is empty ) ? 'col-md-8',
-                            page.sidebar_left is empty and page.sidebar_right is empty ? 'col-md-12',
-                            page.sidebar_left and page.sidebar_right ? 'col-md-6'
-                        ]
+                    set content_classes = [
+                    'content-section',
+                    (page.sidebar_left and page.sidebar_right is empty) or (page.sidebar_right and page.sidebar_left is empty ) ? 'col-md-8',
+                    page.sidebar_left is empty and page.sidebar_right is empty ? 'col-md-12',
+                    page.sidebar_left and page.sidebar_right ? 'col-md-6'
+                    ]
                     %}
                     {%
-                        set sidebar_right_classes = [
-                            'content-right-sidebar',
-                            page.sidebar_left is empty? 'col-md-4',
-                            page.sidebar_left ? 'col-md-3'
-                        ]
+                    set sidebar_right_classes = [
+                    'content-right-sidebar',
+                    page.sidebar_left is empty? 'col-md-4',
+                    page.sidebar_left ? 'col-md-3'
+                    ]
                     %}
 
                     {# Page Top #}

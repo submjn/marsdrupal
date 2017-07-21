@@ -1,0 +1,7 @@
+public_data_view:
+  path: '/public_data'
+  defaults:
+    _title: 'Public Data'
+    _controller: '\Drupal\public_data\Controller\PublicDataController::viewPublicData'
+  requirements:
+    _permission: 'access content'

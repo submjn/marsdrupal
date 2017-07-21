@@ -1,0 +1,7 @@
+interactive_map_view:
+  path: '/interactive_map'
+  defaults:
+    _title: 'Interactive Map'
+    _controller: '\Drupal\interactive_map\Controller\InteractiveMapController::viewInteractiveMap'
+  requirements:
+    _permission: 'access content'

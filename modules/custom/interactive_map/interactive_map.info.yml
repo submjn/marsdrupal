@@ -1,0 +1,4 @@
+name: Interactive Map
+type: module
+description: 'Interactive Map Angularjs Module'
+core: 8.x

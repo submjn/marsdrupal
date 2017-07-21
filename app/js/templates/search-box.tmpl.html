@@ -1,0 +1,26 @@
+<div class="search-box-wrapper">
+	<div class="angucomplete-wrapper">
+		<angucomplete-alt id="ex1"
+	              placeholder="Search column"
+	              pause="100"
+	              selected-object="selectedAttribute"
+	              local-data="tableColumns"
+	              search-fields="name"
+	              title-field="name"
+	              minlength="2"
+	              input-class="form-control form-control-small mars-tooltip"
+	              clear-selected="true" 
+	              focus-out="focusOut()"
+	              input-changed="inputChanged"
+	              ng-show="!selectedAttribute"/>
+    </div>
+    <div ng-show="selectedAttribute" class="input-group">
+    	<div id="attrTab" class="attrTab input-group-addon">
+				    {{selectedAttribute.title}}
+				    <a ng-click="clearSearch();" style="cursor: pointer;color: #555">
+				    	&nbsp; <i class="fa fa-remove"></i>
+				    </a>
+		</div>
+		<input id="attrVal" type="text" ng-model="selectedValue" class="form-control attrVal" tabindex=0/>
+    </div>
+</div>

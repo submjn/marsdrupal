@@ -1,0 +1,69 @@
+// AMS imposed color scheme
+// naming color -- http://www.color-blindness.com/color-name-hue/
+$AMSOrangeRed       : rgb(234,42,21);                 //#ea2a15; -- fire engine red
+$AMSDarkGreen       : rgb(4,56,8);                    //#043808; -- dark green
+$AMSGrassGreen      : rgb(42,92,11);                  //#2a5c0b; -- crusoe green
+$AMSOliveGreen      : rgb(115,121,28);                //#73791c; -- trendy green
+$AMSSpringGreen     : rgb(205,216,96);                //#cdd860; -- goldenrod yellow
+$AMSMintGreen       : rgb(212,214,136);               //#d4d688; -- deco green
+
+$AMSLightGreen      : rgba($AMSDarkGreen, 0.65);
+$AMSLightOrangeRed  : rgba($AMSOrangeRed, 0.65);
+$AMSLightGrassGreen : rgba($AMSGrassGreen, 0.65);
+$AMSLightOliveGreen : rgba($AMSOliveGreen, 0.65);
+$AMSLightSpringGreen: rgba($AMSSpringGreen, 0.65);
+$AMSLightMintGreen  : rgba($AMSMintGreen, 0.65);
+
+$AMSFaintGreen      : rgba($AMSDarkGreen, 0.45);
+$AMSFaintOrangeRed  : rgba($AMSOrangeRed, 0.45);
+$AMSFaintGrassGreen : rgba($AMSGrassGreen, 0.45);
+$AMSFaintOliveGreen : rgba($AMSOliveGreen, 0.45);
+$AMSFaintSpringGreen: rgba($AMSSpringGreen, 0.45);
+$AMSFaintMintGreen  : rgba($AMSMintGreen, 0.45);
+
+$AMSFocusBlue       : rgb(81,203,238); //#51cbee;
+
+// --- black to white
+$AMSWhite           : rgb(255, 255, 255);   //#ffffff; -- white
+$AMSDarkWhite       : rgb(249, 249, 249);   //#f9f9f9; -- white smoke
+$AMSLightGray       : rgb(228, 228, 228);   //#E4E4E4; -- gainsboro white
+$AMSMediumGray      : rgb(204, 204, 204);   //#cccccc; -- very light gray
+$AMSGray            : rgb(90, 90, 90);      //#5a5a5a; -- dim gray
+$AMSDarkGray        : rgb(153, 153, 153);   //#999999; -- nobel gray
+$AMSHeavyGray       : rgb(51, 51, 51);      //#333333; -- night rider gray
+$AMSBlack           : rgb(17, 17, 17);      //#111111; -- black
+
+// AMS Hover colors
+$AMSSpringGreenHover: rgb(167, 181, 45);            //#A7B52D; -- limerick green // Hover color for AMS Spring Green (from Kuntal's mockup)
+$AMSGrassGreenHover : rgb(68, 99, 48);              //#446330; -- dell green
+
+//--------------------------------
+// Action Link Color
+$action-link-color              : $AMSDarkGray;
+
+// Button Colors
+$button-bg-color                : $AMSSpringGreen;
+$button-bg-hover-color          : darken($AMSSpringGreen, 14%); //#ABB634
+$button-border-color            : darken($AMSSpringGreen, 20%);
+$button-text-color              : darken($AMSSpringGreen, 45%); // $AMSGrassGreen
+
+// Table Colors
+$table-header-color             : $AMSLightGray;
+$table-hover-color              : $AMSDarkWhite;
+$table-border-color             : $AMSDarkGray;
+$table-panel-bg-color           : $AMSSpringGreen;
+$table-panel-text-color         : $AMSGrassGreen;
+$table-panel-detail-bg-color    : $AMSGray;
+$table-panel-detail-text-color  : $AMSWhite;
+$text-color                     : $AMSGray;
+
+// Form Control Colors
+$form-control-height            : 45px;
+$form-control-line-height       : 2.22;
+$form-control-btn-bg-color      : $AMSSpringGreen;
+$form-control-btn-bg-hover-color: $AMSSpringGreenHover;
+$form-control-text-color        : $AMSGray;
+$form-control-btn-text-color    : $AMSGrassGreen;
+$form-control-border-hover-color: $AMSGrassGreenHover;
+$mars-slider-bg-color           : $AMSGrassGreen;
+
