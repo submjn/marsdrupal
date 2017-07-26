@@ -47,9 +47,16 @@
 
 			<p>Select State</p>
             <select name="state" chosen search-contains="true" placeholder-text-single="'Select state'"
-                    ng-model="filter.state" class="form-control">
+                    ng-model="filter.marketLocationState" class="form-control">
 				<option value="">Select state</option>
-                <option ng-repeat="state in states track by $index" value="{{state.name}}">{{state.name}}</option>
+                <option ng-repeat="state in marketLocationStates track by $index" value="{{state}}">{{state}}</option>
+            </select>
+
+			<p>Select Market Location</p>
+            <select name="state" chosen search-contains="true" placeholder-text-single="'Select market location'"
+                    ng-model="filter.marketLocation" class="form-control">
+				<option value="">Select state</option>
+                <option ng-repeat="marketLocation in marketLocations track by $index" value="{{marketLocation.market_name}}">{{marketLocation.market_name}}</option>
             </select>
 		</div>
 		<div class="col-sm-4">

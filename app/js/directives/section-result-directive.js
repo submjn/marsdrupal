@@ -54,22 +54,31 @@ app.directive('sectionResult',function($parse, DataFactory, $timeout, $rootScope
 
 			scope.$on('data.filter', function(event, filter){
 				scope.filtering = true;
+
+				var queryParams = {};
+				if(filter.marketLocationState) {
+					queryParams.market_location_state = filter.marketLocationState;
+				}
+				if(filter.marketLocation) {
+					queryParams.market_location = filter.marketLocation;
+				}
+
 				if(filter.commodity) {
-					DataFactory.getCommodityDataPromise(filter.commodity)
+					DataFactory.getCommodityDataPromise(filter.commodity, queryParams)
 						.then(function(commodityData) {
 							console.log("commodityData", commodityData);
 							showData(commodityData);
 						});
 
 				} else if(filter.office) {
-					DataFactory.getOfficeDataPromise(filter.office)
+					DataFactory.getOfficeDataPromise(filter.office, queryParams)
 						.then(function(officeData) {
 							console.log("officeData", officeData);
 							showData(officeData);
 						});
 
 				} else if(filter.report) {
-					DataFactory.getReportDataPromise(filter.report)
+					DataFactory.getReportDataPromise(filter.report, queryParams)
 						.then(function(reportData) {
 							console.log("reportData", reportData);
 							showData(reportData);
