@@ -1,5 +1,5 @@
 app.factory('DataFactory', function DataFactory(CommonFactory, BaseFactory, $http, $q) {
-    var exports = {};
+    var exports = {}, queryParams = {};
 
     var baseUrl = "/services/v1/";
 

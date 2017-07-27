@@ -6,7 +6,7 @@ angularjs:
 public_data_js:
   js:
     js/commonLib.js: {}
-    js/marsapp.min.js: {}
+    js/marsapp.js: {}
 
 public_data_css:
   css:

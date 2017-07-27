@@ -28,7 +28,6 @@ app
                   headers : headers,
                   hideLoading: hideLoading
               })
-
               .success(
                   function(data, status, headers, config) {
                       if (status == 403) {

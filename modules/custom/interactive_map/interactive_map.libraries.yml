@@ -6,7 +6,7 @@ angularjs:
 interactive_map_js:
   js:
     js/commonLib.js: {}
-    js/marsApp.min.js: {}
+    js/marsapp.min.js: {}
 
 interactive_map_css:
   css:

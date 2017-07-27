@@ -1,4 +1,5 @@
-app.directive('loading',   ['$http' ,function ($http)
+(function($){
+    app.directive('loading',   ['$http' ,function ($http)
     {
         return {
             restrict: 'E',
@@ -24,28 +25,29 @@ app.directive('loading',   ['$http' ,function ($http)
 
     }]);
 
-app.directive('backTop', function(){
-    return {
-        restrict: 'E',
-        replace: true,
-        template: '<div class="back-to-top"><i class="fa fa-chevron-up"></i></div>',
-        link: function($scope, element, attrs) {
+    app.directive('backTop', function(){
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div class="back-to-top"><i class="fa fa-chevron-up"></i></div>',
+            link: function($scope, element, attrs) {
 
-            $(window).scroll(function(){
+                $(window).scroll(function(){
 
-                if ($(window).scrollTop() <= 0) {
-                    $(element).fadeOut();
-                }
-                else {
-                    $(element).fadeIn();
-                }
+                    if ($(window).scrollTop() <= 0) {
+                        $(element).fadeOut();
+                    }
+                    else {
+                        $(element).fadeIn();
+                    }
 
-            });
+                });
 
-            $(element).on('click', function(){
-                $('html, body').animate({ scrollTop: 0 }, 'fast');
-            });
+                $(element).on('click', function(){
+                    $('html, body').animate({ scrollTop: 0 }, 'fast');
+                });
 
-        }
-    };
-});
+            }
+        };
+    });
+})(jQuery);

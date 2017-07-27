@@ -115,11 +115,11 @@ function gulpScriptsTask(type, srcArr, filename, msg){
             "retainLines": true
         }))))
         .pipe(gulpif(module, ngAnnotate({ add: true })))
-        .pipe(gulpif(module, rename({suffix: '.min'})))
-        .pipe(gulpif(prod, bytediff.start()))
+        //.pipe(gulpif(module, rename({suffix: '.min'})))
+        //.pipe(gulpif(prod, bytediff.start()))
         //.pipe(gulpif(module, gulpif(prod, uglify({mangle: false}))))
-        .pipe(gulpif(prod, uglify({mangle: false})))
-        .pipe(gulpif(prod, bytediff.stop()))
+        //.pipe(gulpif(prod, uglify({mangle: false})))
+        //.pipe(gulpif(prod, bytediff.stop()))
         .pipe(gulp.dest(_jsDest));
 }
 

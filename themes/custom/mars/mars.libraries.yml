@@ -20,6 +20,7 @@ bootstrap-scripts:
     bootstrap/assets/javascripts/bootstrap/tab.js: {}
     bootstrap/assets/javascripts/bootstrap/transition.js: {}
     ../../../app/assets/lib/angularjs/angular.min.js: {}
+#    ../../../app/assets/lib/other/jquery.min.js: {}
     js/jquery.flexslider-min.js: {}
     js/slideshow.js: {}
 
