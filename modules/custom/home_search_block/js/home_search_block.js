@@ -27,7 +27,8 @@ app.config(["$httpProvider", "$compileProvider", "$locationProvider", function (
 
     $locationProvider.html5Mode(true);
 }]);
-angular.module('app').run(['$templateCache', function ($templateCache) {$templateCache.put('templateCache/loading.tmpl.html', '<div id="preloader"><div class="loader"><span></span><span></span><span></span><span></span></div></div>');}]);
+angular.module('app').run(['$templateCache', function ($templateCache) {$templateCache.put('templateCache/loading.tmpl.html', '<div id="preloader"><div class="loader"><span></span><span></span><span></span><span></span></div></div>');
+    $templateCache.put('templateCache/report-form.tmpl.html', '<form class="ng-pristine ng-valid"><div class="by-categoty form-group"><label for="reportByState">Report By State</label><select id="reportByState" name="state" chosen search-contains="true" placeholder-text-single="\'Select state\'" class="form-control"><option value="">Select state</option><option ng-repeat="state in marketLocationStates track by $index" value="{{state}}">{{state}}</option></select></div><div class="by-categoty form-group"><label for="reportByCommodity">Report By Commodities</label><select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="\'Select commodity\'" class="form-control"><option ng-repeat="commodity in commodities track by $index" value="{{commodity.commodity}}">{{commodity.commodity}}</option></select></div></form>');}]);
 app.constant('COLLECTION_FREQUENCY', {
     DAILY: "daily",
     WEEKLY: "weekly",
@@ -52,7 +53,7 @@ app.controller('mainController', ["$scope", "$rootScope", "DataFactory", "$q", "
 
                 scope.isLoading = function () {
                     if (!$http.pendingRequests.length)
-                    return false;
+                        return false;
                     return !_.find($http.pendingRequests, { "hideLoading": true });
                 };
 
@@ -95,29 +96,61 @@ app.controller('mainController', ["$scope", "$rootScope", "DataFactory", "$q", "
 
     });
 })(jQuery);
+(function ($) {
+    app.directive('reportForm', ["$parse", "DataFactory", "$q", "$timeout", "$rootScope", "CommonFactory", function ($parse, DataFactory, $q, $timeout, $rootScope, CommonFactory)
+    {
+        return {
+            restrict: 'E',
+            templateUrl: 'templateCache/report-form.tmpl.html',
+            link: function link(scope, elm, attrs) {
+
+                scope.commodities = [];
+                scope.states = [];
+
+                /*************************INIT CODE*****************************************/
+                $q.all([
+                    DataFactory.getCommoditiesPromise(),
+                    DataFactory.getMarketLocationStatesPromise()]).
+                then(function (data) {
+                    console.log('Get all data success');
+                    scope.commodities = DataFactory.commodities;
+                    scope.states = DataFactory.marketLocationStates;
+
+                    $timeout(function () {
+                        elem.find('select[chosen]').chosen({ disable_search_threshold: 5, search_contains: true });
+                    }, 500, false);
+
+                }).catch(function (err) {
+                    throw err;
+                });
+            } };
+
+
+    }]);
+})(jQuery);
 app.
 factory('BaseFactory', ["$http", function ($http) {
     return {
 
         /*******************************************************
-              * GET request
-              ******************************************************/
+         * GET request
+         ******************************************************/
         getRequest: function getRequest(requestUrl, successCallback, errorCallback, headers, hideLoading) {
             return this.request("GET", requestUrl, null, successCallback, errorCallback, headers, hideLoading);
         },
 
         /*******************************************************
-            * POST request
-            ******************************************************/
+         * POST request
+         ******************************************************/
         postRequest: function postRequest(requestUrl, requestData, successCallback, errorCallback, headers, hideLoading) {
             return this.request("POST", requestUrl, requestData, successCallback, errorCallback, headers, hideLoading);
         },
 
         /*******************************************************
-            * http request
-            ******************************************************/
+         * http request
+         ******************************************************/
         request: function request(method, url, data, successCallback,
-        errorCallback, headers, hideLoading) {
+                                  errorCallback, headers, hideLoading) {
             return $http({
                 method: method,
                 url: url,
@@ -126,21 +159,21 @@ factory('BaseFactory', ["$http", function ($http) {
                 hideLoading: hideLoading }).
 
             success(
-            function (data, status, headers, config) {
-                if (status == 403) {
-                    alert('session expired');
-                } else {
-                    if (successCallback) {
-                        successCallback(data, status, headers);
+                function (data, status, headers, config) {
+                    if (status == 403) {
+                        alert('session expired');
+                    } else {
+                        if (successCallback) {
+                            successCallback(data, status, headers);
+                        }
                     }
-                }
-            }).
+                }).
             error(
-            function (data, status, headers, config) {
-                if (errorCallback) {
-                    errorCallback(data, status, headers);
-                }
-            });
+                function (data, status, headers, config) {
+                    if (errorCallback) {
+                        errorCallback(data, status, headers);
+                    }
+                });
         },
 
         baseRequestUrl: function baseRequestUrl() {
@@ -267,7 +300,7 @@ factory('CommonFactory', ["BaseFactory", "$q", function (BaseFactory, $q) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
+            results = regex.exec(url);
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
@@ -282,15 +315,15 @@ app.factory('DataFactory', ["CommonFactory", "BaseFactory", "$http", "$q", funct
     var baseUrl = "/services/v1/";
 
     var excludeColumns = [
-    "Office Name",
-    "Office Code",
-    "Office City",
-    "Office State",
-    "Market Location Name",
-    "Market Location City",
-    "Market Location State",
-    "Market Type",
-    "Market Type Category"];
+        "Office Name",
+        "Office Code",
+        "Office City",
+        "Office State",
+        "Market Location Name",
+        "Market Location City",
+        "Market Location State",
+        "Market Type",
+        "Market Type Category"];
 
 
     var groupColumns = ["Group", "Category", "Commodity"];
@@ -470,7 +503,7 @@ app.factory('DataFactory', ["CommonFactory", "BaseFactory", "$http", "$q", funct
         return colAttrId.replaceAll("_", " ")
         //.replaceAll("Office ", "OF ").replaceAll("Market Location ", "ML ")
         //.replaceAll("Market Type  ", "MT ")
-        .split(' ').map(_.capitalize).join(' ');
+            .split(' ').map(_.capitalize).join(' ');
     }
 
     exports.getCommodityDataPromise = function (commodityName, queryParams) {

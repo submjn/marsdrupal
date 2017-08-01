@@ -1,3 +1,11 @@
-<div ng-app="homeSearchBlockApp">
-
+<div ng-app="app">
+    <searchbox ng-controller="mainController" class="row main-content">
+        <div class="widget-searchbox">
+            <h5 class="box-title">Search</h5>
+            <div class="by-categoty clearfix"><a href="/public_data">MARS Public Database <span class="pull-right"><i class="fa fa-angle-double-right"></i></span></a></div>
+            <report-form></report-form>
+            <div class="by-categoty charts-label clearfix"><a href="/interactive_map">Charts &amp; Maps <span class="pull-right"><i class="fa fa-angle-double-right"></i></span></a></div>
+        </div>
+    </searchbox>
+    <loading></loading>
 </div>

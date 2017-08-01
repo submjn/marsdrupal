@@ -1,16 +1,14 @@
 <form class="ng-pristine ng-valid">
     <div class="by-categoty form-group">
         <label for="reportByState">Report By State</label>
-        <select id="reportByState" name="state" chosen search-contains="true" placeholder-text-single="'Select state'"
-                ng-model="filter.marketLocationState" class="form-control">
+        <select id="reportByState" name="state" chosen search-contains="true" placeholder-text-single="'Select state'" class="form-control">
             <option value="">Select state</option>
             <option ng-repeat="state in marketLocationStates track by $index" value="{{state}}">{{state}}</option>
         </select>
     </div>
     <div class="by-categoty form-group">
         <label for="reportByCommodity">Report By Commodities</label>
-        <select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="'Select commodity'"
-                ng-model="filter.commodity" class="form-control">
+        <select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="'Select commodity'" class="form-control">
             <option ng-repeat="commodity in commodities track by $index" value="{{commodity.commodity}}">{{commodity.commodity}}</option>
         </select>
         <!--<select class="form-control" id="reportByCommodity" name="commodity">-->
