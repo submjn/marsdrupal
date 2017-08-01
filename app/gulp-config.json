@@ -5,11 +5,17 @@
   },
   "scripts":{
     "assets/lib":{
+      "globalLib":[
+        "assets/lib/other/jquery.min.js",
+        "assets/lib/angularjs/angular.min.js",
+        "assets/lib/bootstrap/js/bootstrap.min.js"
+      ],
       "commonLib":[
         "assets/lib/other/deep-diff-0.3.2.min.js",
         "assets/lib/other/lodash.min.js",
         "assets/lib/other/ie10-viewport-bug-workaround.js",
         "assets/lib/other/preventNavigatingOnBackspace.js",
+        "assets/lib/other/moment.min.js",
         "assets/lib/jquery-ui/jquery-ui-1.10.4.custom.min.js",
         "assets/lib/angular-ui/select-chosen/chosen.jquery.min.js",
         "assets/lib/angular-tooltips/jquery.tooltipster.min.js",
@@ -23,8 +29,7 @@
         "assets/lib/angular-ui/select-chosen/angular-chosen.min.js",
         "assets/lib/bootstrap/js/ui-bootstrap-tpls-2.0.1.min.js",
         "assets/lib/angular-tooltips/angular-tooltips.js",
-        "assets/lib/easyui/jquery.easyui.min.js",
-        "assets/lib/other/moment.min.js"
+        "assets/lib/easyui/jquery.easyui.min.js"
       ]
     },
     "modules":{

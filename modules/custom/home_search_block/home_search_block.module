@@ -1,0 +1,19 @@
+<?php
+/**
+ * @file home_search_block.module
+ *
+ * Implements a Home Search Block.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+
+function home_search_block_theme() {
+  return [
+    'home_search_block_view' => [
+      'template' => 'home_search_block',
+      'variables' => [],
+    ],
+  ];
+}

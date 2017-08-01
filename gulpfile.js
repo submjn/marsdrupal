@@ -24,9 +24,10 @@ const fileinclude = require('gulp-file-include');
 const babel = require('gulp-babel');
 
 /* Configuration settings for Gulp */
-var _root = "app/",                    // Root Folder
+var ngFolder = 'app';
+var _root = ngFolder + "/",                    // Root Folder
     _dest = _root + "assets/dist/",                         // Destination Folder
-    _gulpConfigPath = "app/gulp-config.json",                 // Gulp Configuration File
+    _gulpConfigPath = ngFolder + "/gulp-config.json",                 // Gulp Configuration File
 
     // HTML Templates
     _htmlTemplatesSrc = _root + "js/templates/*.html",
@@ -52,7 +53,7 @@ gulp.task("ng-templatecache", function(cb) {
         templateCache: {
             file: "templates.js",
             options: {
-                module: "app",
+                module: ngFolder,
                 root: "templateCache/",
                 standAlone: false
             }
