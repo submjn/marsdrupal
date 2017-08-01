@@ -44,17 +44,17 @@
 
     <div class="page-top-section container">
         <div class="row">
-            <div class="content-bottom-1 col-md-4 col-sm-4">
+            {#<div class="content-bottom-1 col-md-4 col-sm-4">#}
                 {# templates/partials/frontpage/block--mars-search.html.twig #}
-                {% include directory ~ '/templates/partials/frontpage/block--mars-search.html.twig' %}
-            </div>
-            {#{% if page.col_One_third %}#}
-                {#{% block colOneThird %}#}
-                    {#<div class="content-bottom-1 col-md-4 col-sm-4">#}
-                        {#{{ page.col_One_third }}#}
-                    {#</div>#}
-                {#{% endblock %}#}
-            {#{% endif %}#}
+                {#{% include directory ~ '/templates/partials/frontpage/block--mars-search.html.twig' %}#}
+            {#</div>#}
+            {% if page.col_One_third %}
+                {% block colOneThird %}
+                    <div class="content-bottom-1 col-md-4 col-sm-4">
+                        {{ page.col_One_third }}
+                    </div>
+                {% endblock %}
+            {% endif %}
             {% if page.col_two_third %}
                 {% block colTwoThird %}
                     <div class="content-bottom-2 col-md-8 col-sm-8">

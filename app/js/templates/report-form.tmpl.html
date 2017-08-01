@@ -1,0 +1,76 @@
+<form class="ng-pristine ng-valid">
+    <div class="by-categoty form-group">
+        <label for="reportByState">Report By State</label>
+        <select id="reportByState" name="state" chosen search-contains="true" placeholder-text-single="'Select state'" class="form-control">
+            <option value="">Select state</option>
+            <option ng-repeat="state in marketLocationStates track by $index" value="{{state}}">{{state}}</option>
+        </select>
+    </div>
+    <div class="by-categoty form-group">
+        <label for="reportByCommodity">Report By Commodities</label>
+        <select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="'Select commodity'" class="form-control">
+            <option ng-repeat="commodity in commodities track by $index" value="{{commodity.commodity}}">{{commodity.commodity}}</option>
+        </select>
+        <!--<select class="form-control" id="reportByCommodity" name="commodity">-->
+            <!--<option value="1"><a href="/public_data?commodity=1">Commodity 1</a></option>-->
+            <!--<option value="2"><a href="/public_data?commodity=2">Commodity 2</a></option>-->
+            <!--<option value="3"><a href="/public_data?commodity=3">Commodity 3</a></option>-->
+            <!--<option value="4"><a href="/public_data?commodity=4">Commodity 4</a></option>-->
+        <!--</select>-->
+    </div>
+</form>
+
+<!--<select class="form-control" id="reportByState" name="state">-->
+    <!--<option value="AK"><a href="/public_data?state=AK">Alaska</a></option>-->
+    <!--<option value="AL"><a href="/public_data?state=AL">Alabama</a></option>-->
+    <!--<option value="AR"><a href="/public_data?state=AR">Arkansas</a></option>-->
+    <!--<option value="AZ"><a href="/public_data?state=AZ">Arizona</a></option>-->
+    <!--<option value="CA">California</option>-->
+    <!--<option value="CO">Colorado</option>-->
+    <!--<option value="CT">Connecticut</option>-->
+    <!--<option value="DC">District of Columbia</option>-->
+    <!--<option value="DE">Delaware</option>-->
+    <!--<option value="FL">Florida</option>-->
+    <!--<option value="GA">Georgia</option>-->
+    <!--<option value="HI">Hawaii</option>-->
+    <!--<option value="IA">Iowa</option>-->
+    <!--<option value="ID">Idaho</option>-->
+    <!--<option value="IL">Illinois</option>-->
+    <!--<option value="IN">Indiana</option>-->
+    <!--<option value="KS">Kansas</option>-->
+    <!--<option value="KY">Kentucky</option>-->
+    <!--<option value="LA">Louisiana</option>-->
+    <!--<option value="MA">Massachusetts</option>-->
+    <!--<option value="MD">Maryland</option>-->
+    <!--<option value="ME">Maine</option>-->
+    <!--<option value="MI">Michigan</option>-->
+    <!--<option value="MN">Minnesota</option>-->
+    <!--<option value="MO">Missouri</option>-->
+    <!--<option value="MS">Mississippi</option>-->
+    <!--<option value="MT">Montana</option>-->
+    <!--<option value="NC">North Carolina</option>-->
+    <!--<option value="ND">North Dakota</option>-->
+    <!--<option value="NE">Nebraska</option>-->
+    <!--<option value="NH">New Hampshire</option>-->
+    <!--<option value="NJ">New Jersey</option>-->
+    <!--<option value="NM">New Mexico</option>-->
+    <!--<option value="NV">Nevada</option>-->
+    <!--<option value="NY">New York</option>-->
+    <!--<option value="OH">Ohio</option>-->
+    <!--<option value="OK">Oklahoma</option>-->
+    <!--<option value="OR">Oregon</option>-->
+    <!--<option value="PA">Pennsylvania</option>-->
+    <!--<option value="PR">Puerto Rico</option>-->
+    <!--<option value="RI">Rhode Island</option>-->
+    <!--<option value="SC">South Carolina</option>-->
+    <!--<option value="SD">South Dakota</option>-->
+    <!--<option value="TN">Tennessee</option>-->
+    <!--<option value="TX">Texas</option>-->
+    <!--<option value="UT">Utah</option>-->
+    <!--<option value="VA">Virginia</option>-->
+    <!--<option value="VT">Vermont</option>-->
+    <!--<option value="WA">Washington</option>-->
+    <!--<option value="WI">Wisconsin</option>-->
+    <!--<option value="WV">West Virginia</option>-->
+    <!--<option value="WY">Wyoming</option>-->
+<!--</select>-->

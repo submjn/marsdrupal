@@ -24,9 +24,10 @@ const fileinclude = require('gulp-file-include');
 const babel = require('gulp-babel');
 
 /* Configuration settings for Gulp */
-var _root = "app/",                    // Root Folder
+var ngFolder = 'app';
+var _root = ngFolder + "/",                    // Root Folder
     _dest = _root + "assets/dist/",                         // Destination Folder
-    _gulpConfigPath = "app/gulp-config.json",                 // Gulp Configuration File
+    _gulpConfigPath = ngFolder + "/gulp-config.json",                 // Gulp Configuration File
 
     // HTML Templates
     _htmlTemplatesSrc = _root + "js/templates/*.html",
@@ -52,7 +53,7 @@ gulp.task("ng-templatecache", function(cb) {
         templateCache: {
             file: "templates.js",
             options: {
-                module: "app",
+                module: ngFolder,
                 root: "templateCache/",
                 standAlone: false
             }
@@ -109,28 +110,37 @@ function gulpScriptsTask(type, srcArr, filename, msg){
     var prod = (gutil.env.type !== 'dev') ? true : false;
     return gulp.src(srcArr)
         .pipe(concat(filename))
-        .pipe(gulpif(prod, babel({
+        .pipe(gulpif(module, gulpif(prod, babel({
             presets: ['es2015'],
             compact: false,
             "retainLines": true
-        })))
+        }))))
         .pipe(gulpif(module, ngAnnotate({ add: true })))
-        .pipe(gulpif(module, rename({suffix: '.min'})))
-        .pipe(gulpif(prod, bytediff.start()))
-        //.pipe(gulpif(module, gulpif(prod, uglify({mangle: true}))))
-        .pipe(gulpif(prod, uglify({mangle: true})))
-        .pipe(gulpif(prod, bytediff.stop()))
+        //.pipe(gulpif(module, rename({suffix: '.min'})))
+        //.pipe(gulpif(prod, bytediff.start()))
+        //.pipe(gulpif(module, gulpif(prod, uglify({mangle: false}))))
+        //.pipe(gulpif(prod, uglify({mangle: false})))
+        //.pipe(gulpif(prod, bytediff.stop()))
         .pipe(gulp.dest(_jsDest));
 }
 
 function generateScripts(type, input){
     Object.keys(input).forEach(function(key, keyIndex) {
-        //console.log("index:",keyIndex,"key:",key,"value:",lib[key]);
+        //console.log("index:",keyIndex,"key:",key,"value:");
         var objKey = key + '.js';
         var srcArr = input[key], newArr = [];
         for(var k = 0; k < srcArr.length; k++){
             newArr.push(_root + srcArr[k]);
+            console.log(srcArr[k]);
         }
+
+        // for(var k = srcArr.length; k > 0; k--){
+        //     newArr.push(_root + srcArr[k-1]);
+        // }
+        // for(var k = 0; k < srcArr.length; k++){
+        //     console.log(newArr[k]);
+        // }
+        //console.log(newArr);
         gulpScriptsTask(type, newArr, objKey, key + 'scripts task complete');
     });
 }
@@ -161,9 +171,9 @@ gulp.task("ng-watch", function(){
     gulp.watch(_jsSrc,['ng-scripts']);
 });
 
-gulp.task("angular-default", ["ng-templatecache", "ng-scripts", "ng-styles", "ng-watch"]);
+gulp.task("ng-default", ["ng-templatecache", "ng-scripts", "ng-styles", "ng-watch"]);
 
-gulp.task("angular-build", ["ng-templatecache", "ng-scripts", "ng-styles"]);
+gulp.task("ng-build", ["ng-templatecache", "ng-scripts", "ng-styles"]);
 
 // MARS Theme
 gulp.task('imagemin', function () {

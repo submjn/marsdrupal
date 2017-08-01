@@ -1,4 +1,4 @@
-var app = angular.module('app', ['720kb.tooltips', 'angucomplete-alt','ui.bootstrap', 'ngStorage']);
+var app = angular.module('app', ['ui.bootstrap']);
 
 app.config(function($httpProvider, $compileProvider, $locationProvider) {
 

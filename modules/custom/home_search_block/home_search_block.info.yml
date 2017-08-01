@@ -1,0 +1,7 @@
+name: Home Search Block
+type: module
+description: 'Homepage Search Block Module'
+package: custom
+core: 8.x
+dependencies:
+  - block

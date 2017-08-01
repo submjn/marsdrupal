@@ -1,0 +1,11 @@
+# Angular js library js file
+
+home_search_block.js:
+  js:
+    js/commonLib.js: {}
+    js/home_search_block.js: {}
+
+home_search_block.css:
+  css:
+    theme:
+      css/home_search_block.css: {}
