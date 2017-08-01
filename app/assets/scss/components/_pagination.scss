@@ -1,0 +1,34 @@
+// pagination
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0!important;
+  &:hover {
+    border: 1px solid #fff !important;
+  }
+}
+.pagination {
+  & > li {
+    & > a {
+      color: lighten($AMSGray, 10%);
+      &:hover {
+        color: lighten($AMSGray, 10%);
+      }
+      &:focus, &:active {
+        border: transparancy;
+        outline: none !important;
+      }
+    }
+  }
+
+  & > .active {
+    & > a {
+      background-color: $AMSGray;
+      border-color: $AMSGray;
+      outline: none !important;
+      &:focus, &:hover {
+        background-color:$AMSGray;
+        border-color: $AMSGray;
+        outline: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "dir":{
+    "_root":"js/",
+    "_dest":"assets/dist/"
+  },
+  "scripts":{
+    "assets/lib":{
+      "globalLib": [
+        "assets/lib/other/jquery.min.js",
+        "assets/lib/angularjs/angular.js"
+      ],
+      "commonLib":[
+        "assets/lib/other/deep-diff-0.3.2.min.js",
+        "assets/lib/other/lodash.min.js",
+        "assets/lib/angular-ui/select-chosen/chosen.jquery.min.js",
+        "assets/lib/angular-tooltips/jquery.tooltipster.min.js",
+        "assets/lib/angularjs/angular-resource.min.js",
+        "assets/lib/angular-ui/select-chosen/angular-chosen.min.js",
+        "assets/lib/bootstrap/ui-bootstrap-tpls-2.0.1.min.js"
+      ]
+    },
+    "modules":{
+      "marsapp": [
+        "js/main-module.js",
+        "assets/dist/js/templates/templates.js",
+        "js/**/*.js"
+      ]
+    }
+  }
+}
