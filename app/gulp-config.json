@@ -8,7 +8,7 @@
       "globalLib":[
         "assets/lib/other/jquery.min.js",
         "assets/lib/angularjs/angular.min.js",
-        "assets/lib/bootstrap/js/bootstrap.min.js"
+        "assets/lib/bootstrap/bootstrap.min.js"
       ],
       "commonLib":[
         "assets/lib/other/deep-diff-0.3.2.min.js",
@@ -27,7 +27,7 @@
         "assets/lib/seedrandom/seedrandom.js",
         "assets/lib/angucomplete-alt/angucomplete-alt.min.js",
         "assets/lib/angular-ui/select-chosen/angular-chosen.min.js",
-        "assets/lib/bootstrap/js/ui-bootstrap-tpls-2.0.1.min.js",
+        "assets/lib/bootstrap/ui-bootstrap-tpls-2.0.1.min.js",
         "assets/lib/angular-tooltips/angular-tooltips.js",
         "assets/lib/easyui/jquery.easyui.min.js"
       ]
