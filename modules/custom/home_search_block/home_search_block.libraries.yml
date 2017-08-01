@@ -2,6 +2,7 @@
 
 home_search_block.js:
   js:
+    js/commonLib.js: {}
     js/home_search_block.js: {}
 
 home_search_block.css:
