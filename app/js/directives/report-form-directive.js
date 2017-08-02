@@ -16,7 +16,7 @@
                 ]).then(function(data){
                     console.log('Get all data success');
                     scope.commodities = DataFactory.commodities;
-                    scope.states = DataFactory.marketLocationStates;
+                    scope.marketLocationStates = DataFactory.marketLocationStates;
 
                     $timeout(function() {
                         elem.find('select[chosen]').chosen({ disable_search_threshold: 5, search_contains:true });

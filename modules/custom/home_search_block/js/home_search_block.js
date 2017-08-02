@@ -102,7 +102,7 @@ app.controller('mainController', ["$scope", "$rootScope", "DataFactory", "$q", "
         return {
             restrict: 'E',
             templateUrl: 'templateCache/report-form.tmpl.html',
-            link: function link(scope, elm, attrs) {
+            link: function link(scope, elem, attrs) {
 
                 scope.commodities = [];
                 scope.states = [];
@@ -114,7 +114,7 @@ app.controller('mainController', ["$scope", "$rootScope", "DataFactory", "$q", "
                 then(function (data) {
                     console.log('Get all data success');
                     scope.commodities = DataFactory.commodities;
-                    scope.states = DataFactory.marketLocationStates;
+                    scope.marketLocationStates = DataFactory.marketLocationStates;
 
                     $timeout(function () {
                         elem.find('select[chosen]').chosen({ disable_search_threshold: 5, search_contains: true });

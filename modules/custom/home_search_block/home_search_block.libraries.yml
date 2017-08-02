@@ -8,4 +8,5 @@ home_search_block.js:
 home_search_block.css:
   css:
     theme:
+      css/chosen.css: {}
       css/home_search_block.css: {}
