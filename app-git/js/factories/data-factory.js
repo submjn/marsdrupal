@@ -1,17 +1,15 @@
 app.factory('DataFactory', function DataFactory(CommonFactory, BaseFactory, $http, $q) {
-    var exports = {}, queryParams = {};
+    var exports = {};
 
-    var baseUrl = "/services/v1/";
+    var baseUrl = "http://10.80.9.9/services/v1/";
 
     var excludeColumns = [
         "Office Name",
         "Office Code",
         "Office City",
         "Office State",
-        "Market Location Name",
         "Market Location City",
         "Market Location State",
-        "Market Type",
         "Market Type Category"
     ];
 
@@ -103,7 +101,7 @@ app.factory('DataFactory', function DataFactory(CommonFactory, BaseFactory, $htt
 
     exports.getMarketLocationsPromise = function(){
         var defered = $q.defer();
-        var requestUrl = baseUrl + "markets";
+        var requestUrl = baseUrl + "marketLocations";
         if (exports[requestUrl]){
             exports.marketLocations = angular.copy(exports[marketLocations]);
 
@@ -122,6 +120,26 @@ app.factory('DataFactory', function DataFactory(CommonFactory, BaseFactory, $htt
         return defered.promise;
     }
 
+    exports.getMarketTypesPromise = function(){
+        var defered = $q.defer();
+        var requestUrl = baseUrl + "marketTypes";
+        if (exports[requestUrl]){
+            exports.marketTypes = angular.copy(exports[marketTypes]);
+
+            defered.resolve([exports.marketTypes]);
+        } else {
+            BaseFactory.getRequest(requestUrl, function(data, status, headers, config){
+                exports.marketTypes = data;
+                exports[requestUrl] = angular.copy(data);
+
+                defered.resolve([data, status, headers, config]);
+
+            }, function(data, status, headers, config){
+                defered.reject([data, status, headers, config]);
+            })
+        }
+        return defered.promise;
+    }
     /*********************************/
     /*****GET DATA API*********/
     /*********************************/
@@ -134,6 +152,8 @@ app.factory('DataFactory', function DataFactory(CommonFactory, BaseFactory, $htt
             for(var param in queryParams) {
                 if(queryStr) {
                     queryStr += "&";
+                } else {
+                    queryStr = "q=";
                 }
                 queryStr += param + "=" + queryParams[param];
             }
@@ -203,8 +223,16 @@ app.factory('DataFactory', function DataFactory(CommonFactory, BaseFactory, $htt
         return getDataPromise("offices", officeName, queryParams);
     }
 
-    exports.getReportDataPromise = function(reportName){
+    exports.getReportDataPromise = function(reportName, queryParams){
         return getDataPromise("reports", reportName, queryParams);
+    }
+
+    exports.getMarketLocationDataPromise = function(marketLocation, queryParams){
+        return getDataPromise("marketLocations", marketLocation, queryParams);
+    }
+
+    exports.getMarketTypeDataPromise = function(marketType, queryParams){
+        return getDataPromise("marketTypes", marketType, queryParams);
     }
 
     return exports;

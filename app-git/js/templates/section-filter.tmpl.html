@@ -41,6 +41,22 @@
 	                <option ng-repeat="report in reports track by $index" value="{{report.report_name}}">{{report.report_name}}</option>
 	            </select>
             </div>
+
+            <div ng-show="filter.commodityType == 'Market Location'">
+				<p>Market Location</p>
+	            <select name="marketLocation" chosen search-contains="true" placeholder-text-single="'Select market location'"
+	                    ng-model="filter.marketLocation" class="form-control">
+	                <option ng-repeat="marketLocation in marketLocations track by $index" value="{{marketLocation.market_name}}">{{marketLocation.market_name}}</option>
+	            </select>
+            </div>
+
+            <div ng-show="filter.commodityType == 'Market Type'">
+				<p>Market Type</p>
+	            <select name="marketType" chosen search-contains="true" placeholder-text-single="'Select market type'"
+	                    ng-model="filter.marketType" class="form-control">
+	                <option ng-repeat="marketType in marketTypes track by $index" value="{{marketType.market_type}}">{{marketType.market_type}}</option>
+	            </select>
+            </div>
 		</div>
 		<div class="col-sm-4">
 			<b>Location</b>
@@ -51,13 +67,6 @@
 				<option value="">Select state</option>
                 <option ng-repeat="state in marketLocationStates track by $index" value="{{state}}">{{state}}</option>
             </select>
-
-			<p>Select Market Location</p>
-            <select name="state" chosen search-contains="true" placeholder-text-single="'Select market location'"
-                    ng-model="filter.marketLocation" class="form-control">
-				<option value="">Select state</option>
-                <option ng-repeat="marketLocation in marketLocations track by $index" value="{{marketLocation.market_name}}">{{marketLocation.market_name}}</option>
-            </select>
 		</div>
 		<div class="col-sm-4">
 			<b>Time</b>
@@ -67,13 +76,6 @@
 
 			<p>Select To Date</p>
             <custom-datepicker date-model="filter.reportToDate" date-object="true" max-date="reportMaxDate"></custom-datepicker>
-
-			<p>Select period</p>
-            <select name="period" chosen search-contains="true" placeholder-text-single="'Select period'"
-                    ng-model="filter.period" class="form-control">
-				<option value="">Select period</option>
-                <option ng-repeat="period in periods track by $index" value="{{period.name}}">{{period.name}}</option>
-            </select>
 		</div>
 
 		<div class="col-sm-12 action-bar">
