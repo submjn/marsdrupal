@@ -1036,7 +1036,7 @@ factory('CommonFactory', ["BaseFactory", "$q", function (BaseFactory, $q) {
 app.factory('DataFactory', ["CommonFactory", "BaseFactory", "$http", "$q", function DataFactory(CommonFactory, BaseFactory, $http, $q) {
     var exports = {};
 
-    var baseUrl = "http://10.80.9.9/services/v1/";
+    var baseUrl = "/services/v1/";
 
     var excludeColumns = [
     "Office Name",
