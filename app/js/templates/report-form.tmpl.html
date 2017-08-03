@@ -3,13 +3,13 @@
         <label for="reportByState">Report By State</label>
         <select id="reportByState" name="state" chosen search-contains="true" placeholder-text-single="'Select state'" class="form-control">
             <option value="">Select state</option>
-            <option ng-repeat="state in marketLocationStates track by $index" value="{{state}}">{{state}}</option>
+            <option ng-repeat="state in marketLocationStates track by $index" value="/public_data?sel-state={{state}}">{{state}}</option>
         </select>
     </div>
     <div class="by-categoty form-group">
         <label for="reportByCommodity">Report By Commodities</label>
         <select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="'Select commodity'" class="form-control">
-            <option ng-repeat="commodity in commodities track by $index" value="{{commodity.commodity}}">{{commodity.commodity}}</option>
+            <option ng-repeat="commodity in commodities track by $index" value="/public_data?sel-commodity={{commodity.commodity}}">{{commodity.commodity}}</option>
         </select>
     </div>
 </form>

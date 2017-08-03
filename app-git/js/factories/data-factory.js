@@ -1,7 +1,8 @@
 app.factory('DataFactory', function DataFactory(CommonFactory, BaseFactory, $http, $q) {
     var exports = {};
 
-    var baseUrl = "http://10.80.9.9/services/v1/";
+    // http://10.80.9.9
+    var baseUrl = "/services/v1/";
 
     var excludeColumns = [
         "Office Name",

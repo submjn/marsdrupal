@@ -28,17 +28,7 @@ app.config(["$httpProvider", "$compileProvider", "$locationProvider", function (
     $locationProvider.html5Mode(true);
 }]);
 angular.module('app').run(['$templateCache', function ($templateCache) {$templateCache.put('templateCache/loading.tmpl.html', '<div id="preloader"><div class="loader"><span></span><span></span><span></span><span></span></div></div>');
-    $templateCache.put('templateCache/report-form.tmpl.html', '<form class="ng-pristine ng-valid"><div class="by-categoty form-group"><label for="reportByState">Report By State</label><select id="reportByState" name="state" chosen search-contains="true" placeholder-text-single="\'Select state\'" class="form-control"><option value="">Select state</option><option ng-repeat="state in marketLocationStates track by $index" value="{{state}}">{{state}}</option></select></div><div class="by-categoty form-group"><label for="reportByCommodity">Report By Commodities</label><select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="\'Select commodity\'" class="form-control"><option ng-repeat="commodity in commodities track by $index" value="{{commodity.commodity}}">{{commodity.commodity}}</option></select></div></form>');}]);
-app.constant('COLLECTION_FREQUENCY', {
-    DAILY: "daily",
-    WEEKLY: "weekly",
-    MONTHLY: "monthly",
-    YEARLY: "yearly" }).
-
-
-constant('DEFAULT_SORT_COL', 'report_date').
-constant('DATE_FORMAT', 'MM/DD/YYYY');
-
+    $templateCache.put('templateCache/report-form.tmpl.html', '<form class="ng-pristine ng-valid"><div class="by-categoty form-group"><label for="reportByState">Report By State</label><select id="reportByState" name="state" chosen search-contains="true" placeholder-text-single="\'Select state\'" class="form-control"><option value="">Select state</option><option ng-repeat="state in marketLocationStates track by $index" value="/public_data?sel-state={{state}}">{{state}}</option></select></div><div class="by-categoty form-group"><label for="reportByCommodity">Report By Commodities</label><select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="\'Select commodity\'" class="form-control"><option ng-repeat="commodity in commodities track by $index" value="/public_data?sel-commodity={{commodity.commodity}}">{{commodity.commodity}}</option></select></div></form>');}]);
 app.controller('mainController', ["$scope", "$rootScope", "DataFactory", "$q", "$timeout", function ($scope, $rootScope, DataFactory, $q, $timeout) {
 
 
@@ -102,7 +92,7 @@ app.controller('mainController', ["$scope", "$rootScope", "DataFactory", "$q", "
         return {
             restrict: 'E',
             templateUrl: 'templateCache/report-form.tmpl.html',
-            link: function link(scope, elm, attrs) {
+            link: function link(scope, elem, attrs) {
 
                 scope.commodities = [];
                 scope.states = [];
@@ -118,6 +108,9 @@ app.controller('mainController', ["$scope", "$rootScope", "DataFactory", "$q", "
 
                     $timeout(function () {
                         elem.find('select[chosen]').chosen({ disable_search_threshold: 5, search_contains: true });
+                        elem.find('select[chosen]').change(function (e) {
+                            window.location = $(this).val();
+                        });
                     }, 500, false);
 
                 }).catch(function (err) {
@@ -520,3 +513,12 @@ app.factory('DataFactory', ["CommonFactory", "BaseFactory", "$http", "$q", funct
 
     return exports;
 }]);
+app.constant('COLLECTION_FREQUENCY', {
+    DAILY: "daily",
+    WEEKLY: "weekly",
+    MONTHLY: "monthly",
+    YEARLY: "yearly" }).
+
+
+constant('DEFAULT_SORT_COL', 'report_date').
+constant('DATE_FORMAT', 'MM/DD/YYYY');

@@ -20,7 +20,7 @@
       ]
     },
     "modules":{
-      "marsapp": [
+      "home_search_block": [
         "js/main-module.js",
         "assets/dist/js/templates/templates.js",
         "js/**/*.js"

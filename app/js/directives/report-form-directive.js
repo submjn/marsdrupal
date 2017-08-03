@@ -4,7 +4,7 @@
         return {
             restrict: 'E',
             templateUrl : 'templateCache/report-form.tmpl.html',
-            link: function (scope, elm, attrs) {
+            link: function (scope, elem, attrs) {
 
                 scope.commodities = [];
                 scope.states = [];
@@ -19,7 +19,10 @@
                     scope.marketLocationStates = DataFactory.marketLocationStates;
 
                     $timeout(function() {
-                        elem.find('select[chosen]').chosen({ disable_search_threshold: 5, search_contains:true });
+                        elem.find('select[chosen]').chosen({ disable_search_threshold: 5, search_contains:true })
+                        elem.find('select[chosen]').change( function(e){
+                            window.location = $(this).val();
+                        });
                     }, 500, false);
 
                 }).catch(function(err){
