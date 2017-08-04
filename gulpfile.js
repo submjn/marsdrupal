@@ -24,7 +24,7 @@ const fileinclude = require('gulp-file-include');
 const babel = require('gulp-babel');
 
 /* Configuration settings for Gulp */
-var ngFolder = 'app';
+var ngFolder = 'app-git';
 var _root = ngFolder + "/",                    // Root Folder
     _dest = _root + "assets/dist/",                         // Destination Folder
     _gulpConfigPath = ngFolder + "/gulp-config.json",                 // Gulp Configuration File

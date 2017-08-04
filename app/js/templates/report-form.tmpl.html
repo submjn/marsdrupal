@@ -9,6 +9,7 @@
     <div class="by-categoty form-group">
         <label for="reportByCommodity">Report By Commodities</label>
         <select id="reportByCommodity" name="commodity" chosen search-contains="true" placeholder-text-single="'Select commodity'" class="form-control">
+            <option value="">Select commodity</option>
             <option ng-repeat="commodity in commodities track by $index" value="/public_data?sel-commodity={{commodity.commodity}}">{{commodity.commodity}}</option>
         </select>
     </div>

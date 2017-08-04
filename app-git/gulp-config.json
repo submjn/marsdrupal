@@ -34,8 +34,8 @@
     },
     "modules":{
       "marsapp": [
-        "assets/dist/js/templates/templates.js",
         "js/main-module.js",
+        "assets/dist/js/templates/templates.js",
         "js/**/*.js"
       ]
     }
