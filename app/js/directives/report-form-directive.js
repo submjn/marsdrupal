@@ -27,7 +27,7 @@
 
                 }).catch(function(err){
                     throw err;
-                })
+                });
             }
         };
 
