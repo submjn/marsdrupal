@@ -53,7 +53,7 @@
   }
 
   .third-row {
-    h3 {
+    h4 {
       color: $AMSGrassGreen;
       border-bottom: 5px solid $AMSGrassGreen;
       margin: 5px 0;
@@ -106,22 +106,6 @@
       }
     }
   }
-
-  .grid_column{
-    width: 100%;
-    @include clearfix;
-    section {
-      float: left!important;
-      width: 33.33% !important;
-      position: relative;
-      min-height: 1px;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    .view-recent-articles-list {
-      .author, .list-inline { display: none; }
-    }
-  }
 }
 
 // Responsive
@@ -131,6 +115,8 @@
       h4, p { display: none; }
     }
     .third-row {
+
+
       .column {
         margin-bottom: 20px!important;
       }
