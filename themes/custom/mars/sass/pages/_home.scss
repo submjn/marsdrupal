@@ -135,6 +135,18 @@
         margin-bottom: 20px!important;
       }
     }
+    .grid_column{
+      width: 100%;
+      @include clearfix;
+      section {
+        float: none!important;
+        width: 100% !important;
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
   }
 }
 
