@@ -22,6 +22,7 @@ const runSequence  = require('run-sequence');
 const imagemin = require('gulp-imagemin');
 const fileinclude = require('gulp-file-include');
 const babel = require('gulp-babel');
+const livereload = require('gulp-livereload');
 
 /* Configuration settings for Gulp */
 var ngFolder = 'app-git';
